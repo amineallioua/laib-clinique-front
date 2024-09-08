@@ -7,7 +7,7 @@ import grid from '../../assets/grid.png'
 function Hsec1(){
 
 return (
-    <section  className='flex flex-col md:flex-row items-center justify-between  w-screen h-screen  px-12 mx-auto bg-[#d4f5ff] overflow-hidden relative' >
+    <section  className='flex flex-col md:flex-row items-center justify-between  w-screen   px-12 mx-auto bg-[#d4f5ff] overflow-hidden relative' >
       <div className="mt-[150px] z-10 md:w-1/2 md:mt-0" >
 
      
@@ -16,7 +16,7 @@ return (
           and Clear Voice.
         </h1>
 
-        <p className="mb-6 realtive mt-10 md:mt-0">
+        <p className="mb-6 realtive mt-10 md:mt-10">
           Empowering minds and voices for a balanced life. 
           We offer personalized care in both speech and mental wellness, 
           guiding you toward clarity and confidence. 
@@ -30,7 +30,7 @@ return (
         </button>
 
 
-          <div className='w-15 h-auto absolute md:bottom-10  md:left-18'>
+          <div className='w-15 h-auto absolute bottom-5 md:left-18'>
           <img 
             src={avicii} 
             alt="Sample" 
@@ -50,7 +50,7 @@ return (
         </div>
      
       
-        <div className='absolute right-[-80px] sm:left-[550px] md:top-0 '>
+        <div className='absolute right-[-80px] md:left-[550px] md:top-0 '>
         <img 
         src={grid} 
         alt="Sample" 
@@ -61,7 +61,7 @@ return (
 
 
   {/* Image Block */}
-  <div className="w-auto h-auto sm:w-1/3 md:w-2/3  py-8s  z-0 flex justify-center ">
+  <div className="w-auto   py-8s  z-0 flex justify-center ">
     <img 
       src={nurce} 
       alt="Sample" 
