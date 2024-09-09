@@ -5,7 +5,7 @@ const Card = () => {
           Counseling for Emotional and Behavioral Issues
           </h1>
           <p className="text-[10px] sm:text-[16px]" >
-          We’re here to help you better understand and manage your emotions 
+          Were here to help you better understand and manage your emotions 
           and behaviors, fostering emotional stability.
           </p>
 

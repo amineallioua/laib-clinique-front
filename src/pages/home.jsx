@@ -5,7 +5,7 @@ import Hsec2 from '../components/home/sectiontwo';
 import Hsec3 from '../components/home/sectionthree';
 import Hsec4 from '../components/home/sectionfour';
 import Hsec5 from '../components/home/sectionfive';
-
+import Hsec6 from '../components/home/sectionsix';
 function Home(){
 
    return (
@@ -16,6 +16,7 @@ function Home(){
      <Hsec3/>
      <Hsec4/>
      <Hsec5/>
+     <Hsec6/>
     </div>
   );
 
