@@ -23,14 +23,14 @@ return (
           Your journey to holistic healing starts here.
         </p>
 
-
+ 
 
         <button className='bg-custom-gradient  text-white px-4 py-2 rounded-3xl font-thin' >
         Book an Appointment NOW
         </button>
 
 
-          <div className='w-15 h-auto absolute bottom-5 md:left-18'>
+          <div className='w-15 h-auto  bottom-5 md:left-18'>
           <img 
             src={avicii} 
             alt="Sample" 

@@ -15,7 +15,7 @@ const Hsec3 = () => {
                  qui officia deserunt mollit anim id est laborum.</p>
             </div>
             <div className='md:w-1/2 justify-center flex'>
-             <div className='w-[350px] h-[350px] bg-[#FFCDB2] rounded-full border-[15px] border-[#9d96c9]' >
+             <div className='  w-[320px] aspect-square  sm:w-[350px] sm:h-[350px] bg-white rounded-full border-[15px] border-[#9d96c9]' >
 
              </div>
             </div>

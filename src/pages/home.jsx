@@ -6,6 +6,8 @@ import Hsec3 from '../components/home/sectionthree';
 import Hsec4 from '../components/home/sectionfour';
 import Hsec5 from '../components/home/sectionfive';
 import Hsec6 from '../components/home/sectionsix';
+import Footer from '../components/footer'
+
 function Home(){
 
    return (
@@ -17,6 +19,10 @@ function Home(){
      <Hsec4/>
      <Hsec5/>
      <Hsec6/>
+     <Footer/>
+    
+
+     
     </div>
   );
 
