@@ -69,13 +69,13 @@ const Hsec6 = () => {
         <div className="flex justify-center mt-8 space-x-4">
         <button
           onClick={handlePrev}
-          className="px-4 py-2 bg-custom-gradient text-white font-bold rounded-lg"
+          className="px-4 py-2 bg-[#4BA6C3] text-white font-bold rounded-lg"
         >
           Prev
         </button>
         <button
           onClick={handleNext}
-          className="px-4 py-2 bg-custom-gradient text-white font-bold rounded-lg"
+          className="px-4 py-2 bg-[#4BA6C3] text-white font-bold rounded-lg"
         >
           Next
         </button>

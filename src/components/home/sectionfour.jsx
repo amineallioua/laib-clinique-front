@@ -9,7 +9,7 @@ const Hsec4 = () => {
                 <p className="text-center" >At our clinic, we offer a comprehensive range of services designed to improve both your communication abilities and mental well-being. 
                 Our dedicated team is here to support your unique journey to clarity and balance.</p>
                 <center>
-                <div className="w-[90%]  px-3 md:px-10 py-5 pb-10 bg-custom-gradient h-auto justify-center  mt-16 rounded-3xl flex-row" >
+                <div className="w-[90%]  px-3 md:px-10 py-5 pb-10 bg-custom-gradient2 h-auto justify-center  mt-16 rounded-3xl flex-row" >
                     <div>
                         <h1 className="font-bold md:font-extrabold text-white text-[18px] sm:text-[36px] mb-5 mx-auto text-center">PSYCHOTHERAPY</h1>
                         <div className="flex flex-wrap justify-center" >

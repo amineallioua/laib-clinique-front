@@ -6,7 +6,7 @@ import { FaWhatsapp } from "react-icons/fa";
 
 const footer = () => {
     return (  
-        <div className="relative b-0 w-screen bg-custom-gradient  items-center  justify-center  flex-row " >
+        <div className="relative b-0 w-screen bg-[#4BA6C3]  items-center  justify-center  flex-row " >
             <div className="text-xl w-full flex-grow text-center tetx-bold pt-5 text-white">
                     Logo
                 </div>
