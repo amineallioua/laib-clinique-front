@@ -1,6 +1,8 @@
-import Wcard from '../workshopCard'
+import Wcard from './workshopCard'
+import { FaArrowLeft } from "react-icons/fa";
+import { FaArrowRight } from "react-icons/fa";
 
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -69,15 +71,15 @@ const Hsec6 = () => {
         <div className="flex justify-center mt-8 space-x-4">
         <button
           onClick={handlePrev}
-          className="px-4 py-2 bg-[#4BA6C3] text-white font-bold rounded-lg"
+          className=" w-12 h-12 px-4 py-2 bg-[#4BA6C3] text-white font-bold rounded-lg"
         >
-          Prev
+          <FaArrowLeft />
         </button>
         <button
           onClick={handleNext}
-          className="px-4 py-2 bg-[#4BA6C3] text-white font-bold rounded-lg"
+          className="px-4 py-2 bg-[#4BA6C3] text-white w-12 h-12 font-bold rounded-lg"
         >
-          Next
+          <FaArrowRight />
         </button>
       </div>
         </section>
