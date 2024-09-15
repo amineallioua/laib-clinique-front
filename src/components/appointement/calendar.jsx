@@ -1,53 +1,58 @@
 import * as React from 'react';
+import { useState } from 'react';  // Import useState for managing date state
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { StaticDatePicker } from '@mui/x-date-pickers/StaticDatePicker';
-import dayjs from 'dayjs';  // Import dayjs
+import dayjs from 'dayjs';
 
 export default function Calendar() {
+  const [selectedDate, setSelectedDate] = useState(dayjs());  // State for storing the selected date
+
+  const handleDateChange = (newDate) => {
+    setSelectedDate(newDate);  // Update the selected date
+    
+  };
+
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <StaticDatePicker
-      className="rounded-[50px] shadow-3xl shadow-black p-10 h-[480px] w-[750px]"
+        className="rounded-[50px] shadow-3xl shadow-black p-10 h-[480px] mb-10 w-[750px] "
         orientation="landscape"
-        defaultValue={dayjs()}  // Set default date
+        value={selectedDate}  // Controlled value from state
+        onChange={handleDateChange}  // Handle date change
         sx={{
-          backgroundColor: 'white',       // Background color of the picker
+          backgroundColor: 'white',
           fontFamily: 'Montserrat, sans-serif',
-          fontWeight: '800',  
-          fontSize: '20px',  
+          fontWeight: '800',
+          fontSize: '20px',
 
           '& .MuiPickersCalendarHeader-root': {
-            
-            backgroundColor: '#5188F2',    // Custom header color (blue)
-            color: 'white',     
-            fontFamily: 'Montserrat, sans-serif',  
-            fontWeight: '800',  
-            fontSize: '20px', 
-            borderRadius:'15px'          // Custom text color
+            backgroundColor: '#5188F2',
+            color: 'white',
+            fontFamily: 'Montserrat, sans-serif',
+            fontWeight: '800',
+            fontSize: '20px',
+            borderRadius: '15px'
           },
           '& .MuiPickersDay-root': {
-            fontWeight: 'bold', 
-            fontFamily:'Montserrat', 
-            fontFamily: 'Montserrat, sans-serif', 
-            fontWeight: '800', 
-            fontSize: '15px',            // Custom text styles for days
+            
+            fontFamily: 'Montserrat, sans-serif',
+            fontWeight: '800',
+            fontSize: '15px',
             '&:hover': {
-              fontFamily: 'Montserrat, sans-serif',
-              backgroundColor: '#6366f1',  // Hover color on day
+              backgroundColor: '#6366f1',
             },
             '&.Mui-selected': {
-              backgroundColor: '#5188F2', 
-              fontFamily: 'Montserrat, sans-serif', // Selected day color
+              backgroundColor: '#5188F2',
             },
             '& .MuiTypography-root.MuiTypography-overline': {
-              display: 'none !important',  // Hide the "Select date" text
+              display: 'none !important',
             },
             '& .MuiPickersToolbar-content': {
-              display: 'none !important',  // Hide the toolbar content
+              display: 'none !important',
             },
             '& .MuiDatePickerToolbar-title': {
-              display: 'none !important',  // Hide the selected date header
+              display: 'none !important',
             },
           },
         }}

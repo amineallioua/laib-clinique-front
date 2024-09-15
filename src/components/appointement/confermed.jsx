@@ -1,10 +1,17 @@
 import corect from '../../assets/correct.png'
 import { IoClose } from "react-icons/io5";
+import React, { useState } from 'react';
 
 
 const confermed = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const toggleMenu = () => {
+      setIsOpen(!isOpen);
+  };
+
+
     return ( 
-        <div className="w-full flex justify-center bg-transparent backdrop-blur-sm h-full p-[10%] absolute z-40 top-0 " >
+        <div className= {`  w-full flex ${isOpen ? 'block' : 'hidden'} justify-center bg-transparent backdrop-blur-sm h-full p-[10%] absolute z-40 top-0 `} >
             <div className="w-[650px] h-[380px] py-10 bg-white rounded-[50px] shadow-2xl flex-row relative justify-center " >
               <center>
               <img src={corect} 

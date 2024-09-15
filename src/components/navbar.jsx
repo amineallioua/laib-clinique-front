@@ -14,7 +14,7 @@ const Navbar = () => {
     const isActive = (path) => location.pathname === path;
 
     return (
-        <nav className="bg-white text-black shadow-md fixed z-40 top-0 left-0 w-full">
+        <nav className="bg-white text-black shadow-md fixed z-40 top-0 left-0 w-screen">
             <div className="container mx-auto px-4 py-5 flex items-center justify-between">
                 {/* Logo */}
                 <div className="text-xl font-bold text-black">
@@ -36,8 +36,8 @@ const Navbar = () => {
                         Book an Appointment
                     </Link>
                     <Link
-                        to="/"
-                        className={`text-[15px] font-bold leading-[21.94px] text-left ${isActive('/store') ? 'border-b-2 border-blue-500' : ''}`}
+                        to="/Store"
+                        className={`text-[15px] font-bold leading-[21.94px] text-left ${isActive('/Store') ? 'border-b-2 border-[#FFCAD4]' : ''}`}
                     >
                         Store
                     </Link>
