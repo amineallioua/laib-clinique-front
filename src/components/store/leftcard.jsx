@@ -2,7 +2,7 @@ import chess from '../../assets/pngwing.com (6) 1.png'
 
 
 const leftcard = ({ className }) => {
-    return ( <div className={` bg-white rounded-[50px] p-10  w-[300px] xl:w-[400px]  ${className} h-[200px] shadow-xl shadow-slate-400  `} >
+    return ( <div className={` bg-white rounded-[50px] p-10  w-[300px] xl:w-[400px]  ${className} h-[200px] shadow-xl shadow-slate-300  `} >
             <div className="flex justify-center" >
                 <img src={chess}
                  alt="" 

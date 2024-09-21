@@ -1,25 +1,19 @@
 import * as React from 'react';
-import { useState } from 'react';  // Import useState for managing date state
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { StaticDatePicker } from '@mui/x-date-pickers/StaticDatePicker';
 import dayjs from 'dayjs';
 
-export default function Calendar() {
-  const [selectedDate, setSelectedDate] = useState(dayjs());  // State for storing the selected date
+export default function Calendar({ selectedDate, onDateChange }) {
 
-  const handleDateChange = (newDate) => {
-    setSelectedDate(newDate);  // Update the selected date
-    
-  };
 
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <StaticDatePicker
-        className="rounded-[50px] shadow-3xl shadow-black p-10 h-[480px] mb-10 w-[750px] "
+        className="rounded-[50px] shadow-3xl shadow-black p-10 h-[500px] mb-10 w-[750px] "
         orientation="landscape"
-        value={selectedDate}  // Controlled value from state
-        onChange={handleDateChange}  // Handle date change
+        value={selectedDate || dayjs()}   // Controlled value from state
+        onChange={onDateChange}  // Handle date change
         sx={{
           backgroundColor: 'white',
           fontFamily: 'Montserrat, sans-serif',

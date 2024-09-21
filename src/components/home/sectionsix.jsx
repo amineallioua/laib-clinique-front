@@ -1,21 +1,33 @@
-import Wcard from './workshopCard'
-import { FaArrowLeft } from "react-icons/fa";
-import { FaArrowRight } from "react-icons/fa";
-
-import React, { useRef } from 'react';
-// Import Swiper React components
+import React, { useRef, useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-
-// Import Swiper styles
+import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
+import Wcard from './workshopCard';
 import 'swiper/css';
 import 'swiper/css/pagination';
 
-  
-
-// import required modules
-
 const Hsec6 = () => {
   const swiperRef = useRef(null);
+  const [loading, setLoading] = useState(true);
+  const [workshop, setWorkshops] = useState([]); // State to hold fetched data
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch('http://localhost:4000/api/trainings/get_training'); // Example API
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const result = await response.json();
+        setWorkshops(result); 
+        setLoading(false);// Store data in state
+        console.log(result)
+      } catch (error) {
+        console.error('Error fetching workshops:', error);
+      }
+    };
+
+    fetchData();
+  }, []); // Run once when component mounts
 
   const handleNext = () => {
     if (swiperRef.current && swiperRef.current.swiper) {
@@ -29,49 +41,62 @@ const Hsec6 = () => {
     }
   };
 
-    return (  
-        <section className="w-screen    pb-16 bg-[#d4f5ff] justify-between text-center py-12  " >
-            <h1 className="font-extrabold sm:text-[40px] mb-5 mx-auto text-center px-12 " >WORKSHOPS AND COURSES</h1>
-            <h3 className="font-md sm:text-[25px] mb-10 mx-auto text-center px-12" >EXPLORE A WIDE RANGE OF WORKSHOPS AND COURSES FOR INDIINDIVIDUALSM FAMILIES AND PROFESSPROFESSIONALS</h3>
-                
-                <Swiper
-                 ref={swiperRef}
-                 loop={true} 
-           breakpoints={{
-            0:{
-              slidesPerView: 3,
-              spaceBetween: 170,
-            },
-            640: {
-              slidesPerView: 2,
-              spaceBetween: 20,
-            },
-            768: {
-              slidesPerView: 2,
-              spaceBetween: 40,
-            },
-            1024: {
-              slidesPerView: 3,
-              spaceBetween: 50,
-            },
-          }}
-          
+  return (
+    <section className="w-screen pb-16 bg-[#d4f5ff] justify-between text-center py-12">
+      <h1 className="font-extrabold sm:text-[40px] mb-5 mx-auto text-center px-12">
+        WORKSHOPS AND COURSES
+      </h1>
+      <h3 className="font-md sm:text-[25px] mb-10 mx-auto text-center px-12">
+        EXPLORE A WIDE RANGE OF WORKSHOPS AND COURSES FOR INDIVIDUALS, FAMILIES, AND PROFESSIONALS
+      </h3>
+
+      <Swiper
+        ref={swiperRef}
+        loop={true}
+        breakpoints={{
+          0: {
+            slidesPerView: 1,
+            spaceBetween: 10,
+          },
+          640: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+          768: {
+            slidesPerView: 2,
+            spaceBetween: 40,
+          },
+          1024: {
+            slidesPerView: 3,
+            spaceBetween: 50,
+          },
+        }}
         className="mySwiper"
       >
-        <SwiperSlide className='w-[170px]' ><Wcard/></SwiperSlide>
-        <SwiperSlide><Wcard/></SwiperSlide>
-        <SwiperSlide><Wcard/></SwiperSlide>
-        <SwiperSlide> <Wcard/></SwiperSlide>
-        <SwiperSlide><Wcard/></SwiperSlide>
-        <SwiperSlide><Wcard/></SwiperSlide>
-        <SwiperSlide><Wcard/></SwiperSlide>
-        <SwiperSlide><Wcard/></SwiperSlide>
-        <SwiperSlide><Wcard/></SwiperSlide>
+
+       
+{loading ? (
+          // Render placeholder cards while loading
+          <>
+            <SwiperSlide><Wcard   workshop={{ title: "loading"}} /></SwiperSlide>
+            <SwiperSlide><Wcard   workshop= {{ title: "loading"}} /></SwiperSlide>
+            <SwiperSlide><Wcard   workshop= {{ title: "loading"}} /></SwiperSlide>
+            <SwiperSlide><Wcard   workshop= {{ title: "loading"}} /></SwiperSlide>
+          </>
+        ) : (
+          // Render actual data when loading is done
+          workshop.map((item) => (
+            <SwiperSlide key={item.id}> {/* Add a unique key prop */}
+              <Wcard workshop={item} /> {/* Pass title as prop */}
+            </SwiperSlide>
+          ))
+        )}
       </Swiper>
-        <div className="flex justify-center mt-8 space-x-4">
+
+      <div className="flex justify-center mt-8 space-x-4">
         <button
           onClick={handlePrev}
-          className=" w-12 h-12 px-4 py-2 bg-[#4BA6C3] text-white font-bold rounded-lg"
+          className="w-12 h-12 px-4 py-2 bg-[#4BA6C3] text-white font-bold rounded-lg"
         >
           <FaArrowLeft />
         </button>
@@ -82,8 +107,8 @@ const Hsec6 = () => {
           <FaArrowRight />
         </button>
       </div>
-        </section>
-    );
-}
- 
+    </section>
+  );
+};
+
 export default Hsec6;

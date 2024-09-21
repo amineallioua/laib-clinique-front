@@ -6,7 +6,7 @@ const Ssec1 = () => {
        
        <div className=" bg-[#FFCAD4] rounded-[50px] w-[100%] shadow-2xl  flex-row md:flex mt-16 h-auto px-5 md:px-16 " >
         <div className=" md:w-1/2 text-left  relative py-5 md:py-[80px] " >
-        <h1 className=" text-2xl sm:text-4xl font-bold text-black" >EXPLORE DARIN'S <br />  WORLD    </h1>
+        <h1 className=" text-2xl sm:text-4xl  font-extrabold text-black" >EXPLORE DARIN'S <br />  WORLD    </h1>
         <p className="mt-5 text-white  " >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do 
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut 
             enim ad minim veniam, quis nostrud exercitation 

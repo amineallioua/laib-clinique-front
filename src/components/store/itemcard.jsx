@@ -3,7 +3,7 @@ import itemimg from '../../assets/pngwing2.png'
 
 const itemcard = () => {
     return ( 
-        <div className="w-[218px] h-[268px] rounded-[50px] flex-row shadow-xl shadow-slate-400  " >
+        <div className="w-[218px] h-[268px] rounded-[50px] flex-row shadow-xl shadow-slate-300  " >
             <center>
             <div className=' h-2/3 aspect-square pt-10 '  >
              <img src={itemimg}
