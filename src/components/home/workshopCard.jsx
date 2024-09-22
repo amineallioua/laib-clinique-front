@@ -6,7 +6,7 @@ const Wcard = ({ workshop }) => {
           <div role="status" className="flex justify-center items-center  h-full">
             <svg
               aria-hidden="true"
-              className="w-[100px] h-[100px] text-gray-200 animate-spin dark:text-gray-300 fill-blue-600"
+              className="sm:w-[100px] sm:h-[100px] w-[70px] h-[70px]   text-gray-200 animate-spin dark:text-gray-300 fill-blue-600"
               viewBox="0 0 100 100"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"

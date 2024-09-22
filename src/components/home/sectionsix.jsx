@@ -20,7 +20,7 @@ const Hsec6 = () => {
         const result = await response.json();
         setWorkshops(result); 
         setLoading(false);// Store data in state
-        console.log(result)
+        
       } catch (error) {
         console.error('Error fetching workshops:', error);
       }
@@ -49,7 +49,7 @@ const Hsec6 = () => {
       <h3 className="font-md sm:text-[25px] mb-10 mx-auto text-center px-12">
         EXPLORE A WIDE RANGE OF WORKSHOPS AND COURSES FOR INDIVIDUALS, FAMILIES, AND PROFESSIONALS
       </h3>
-
+<center>
       <Swiper
         ref={swiperRef}
         loop={true}
@@ -92,7 +92,7 @@ const Hsec6 = () => {
           ))
         )}
       </Swiper>
-
+      </center>
       <div className="flex justify-center mt-8 space-x-4">
         <button
           onClick={handlePrev}

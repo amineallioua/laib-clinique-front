@@ -1,34 +1,56 @@
-import Leftcard from './leftcard'
+
 import Itemcard from './itemcard'
+import { useState , useEffect } from 'react';
 
  
 const Ssec2 = () => {
+    const [products , setProducts] = useState([]);
+    const [loading, setLoading] = useState(true);
+ 
+    const getproducts = async () => {
+        try {
+          const response = await fetch('http://localhost:4000/api/products/get'); // Example API
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          const result = await response.json();
+          setProducts(result); 
+          setLoading(false);
+          
+        } catch (error) {
+          console.error('Error fetching products:', error);
+        }
+      };
+      useEffect(() => { getproducts() }, []);
+
     return ( 
         <section className=" w-screen  pt-[70px] px-12 " >
             <h1 className="text-center mb-10 text-2xl sm:text-4xl font-extrabold  text-black" > A wide range of items </h1>
             <center>
-            <div className='  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mb-10' > 
-            <Leftcard   /> 
-            <Leftcard  className=" md:h-[410px] w-[250px] row-span-2 " /> 
-            <Leftcard /> 
-            <Leftcard  /> 
-            <Leftcard /> 
+               <div className='grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2   gap-5 mb-10 ' >
+
+
+               {loading ? (
+          // Render placeholder cards while loading
+          <>
+           <Itemcard  Product={{name:"loading"}} />
+           <Itemcard  Product={{name:"loading"}} />    
+           <Itemcard  Product={{name:"loading"}} />    
+           <Itemcard  Product={{name:"loading"}} />    
+           <Itemcard  Product={{name:"loading"}} />    
+           <Itemcard  Product={{name:"loading"}} />    
+           <Itemcard  Product={{name:"loading"}} /> 
+           <Itemcard  Product={{name:"loading"}} /> 
+           <Itemcard  Product={{name:"loading"}} /> 
+           <Itemcard  Product={{name:"loading"}} />         
+          
+          </>
+        ) : (
+          // Render actual data when loading is done
+          products.map((item)=> ( <Itemcard  key={item.id} Product={item} /> ))
+        )}
             </div>
-            <div className='grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2   gap-5 mb-10 ' >
-                <Itemcard/>
-                <Itemcard/>
-                <Itemcard/>
-                <Itemcard/>
-                <Itemcard/>
-                <Itemcard/>
-                <Itemcard/>
-                <Itemcard/>
-                <Itemcard/>
-                <Itemcard/>
-                <Itemcard/>
-                <Itemcard/>
-                <Itemcard/>
-            </div>
+
             </center>
 
         </section>
