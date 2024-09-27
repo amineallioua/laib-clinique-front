@@ -1,11 +1,14 @@
 import React from 'react';
 import shape from '../../assets/Component2.png';
-import shop from '../../assets/shop_9018966 1.png'
 
 
-const Hsec5s = () => {
+
+const Hsec5 = () => {
     return (
-        <section className="w-screen      bg-[#d4f5ff]  p-12 " >
+        <section data-aos="fade-right"
+        data-aos-offset="300"
+        data-aos-easing="ease-in-sine"
+           className="w-screen      bg-[#d4f5ff]  p-12 " >
            <div className="sm:flex  flex-row items-center justify-between " >
 
            <div className='sm:w-1/3 h-auto  bottom-5 md:left-18'>
@@ -48,4 +51,4 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit,
       );
 }
  
-export default Hsec5s;
+export default Hsec5;

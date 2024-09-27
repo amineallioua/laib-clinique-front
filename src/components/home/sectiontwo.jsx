@@ -6,7 +6,10 @@ import vector from '../../assets/Vector.png'
 function Hsec2(){
 
     return(
-        <section  className='flex  md:flex-row items-center justify-between  w-screen md:pb-[200px]  px-12 mx-auto bg-[#d4f5ff] pt-20 relative lg:h-screen' >
+        <section data-aos="fade-left"
+        data-aos-offset="300"
+        data-aos-easing="ease-in-sine"
+         className='flex  md:flex-row items-center justify-between  w-screen md:pb-[200px]  px-12 mx-auto bg-[#d4f5ff] pt-20 relative lg:h-screen' >
             <div className='w-1/2' >
 
             <img className='absolute left-[-70%] h-auto md:left-[-50%] lg:left-[-15px] top-0 '

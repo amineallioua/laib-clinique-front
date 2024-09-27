@@ -4,7 +4,10 @@ import Card from './cards';
 
 const Hsec4 = () => {
     return ( 
-        <section className="w-screen   px-12 mx-auto bg-[#d4f5ff] relative  flex-row pt-[80px] " >
+        <section data-aos="fade-left"
+        data-aos-offset="300"
+        data-aos-easing="ease-in-sine"
+         className="w-screen   px-12 mx-auto bg-[#d4f5ff] relative  flex-row pt-[80px] " >
                 <h1 className="font-bold md:font-extrabold text-[36px] mb-5 mx-auto text-center " >OUR SERVICES</h1>
                 <p className="text-center" >At our clinic, we offer a comprehensive range of services designed to improve both your communication abilities and mental well-being. 
                 Our dedicated team is here to support your unique journey to clarity and balance.</p>

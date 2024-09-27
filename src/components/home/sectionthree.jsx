@@ -4,7 +4,10 @@ import React from 'react';
 
 const Hsec3 = () => {
     return (  
-        <section  className='flex  md:flex-row items-center flex-col justify-between  w-screen  pt-[50px] px-12 mx-auto bg-[#d4f5ff] relative ' >
+        <section  data-aos="fade-right" 
+        data-aos-offset="300"
+        data-aos-easing="ease-in-sine"
+         className='flex  md:flex-row items-center flex-col justify-between  w-screen  pt-[50px] px-12 mx-auto bg-[#d4f5ff] relative ' >
             <div className=' md:w-1/2 mb-20 mt-20  ' >
             <h1 className='font-bold md:font-extrabold text-[36px] mb-5'>MEET LPC. LAIB</h1>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
