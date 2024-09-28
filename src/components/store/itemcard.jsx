@@ -1,9 +1,20 @@
 import itemimg from '../../assets/pngwing2.png'
 import { useNavigate } from 'react-router-dom';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from 'react';
+
 const Itemcard = ({ Product }) => {
   const navigate = useNavigate();
+  useEffect(() => {
+    AOS.init({ duration: 1000 });
+  }, []);
   return (
-    <div onClick={()=>{ navigate(`/details/${Product._id}`)}} className="w-[218px] h-[288px] rounded-[50px] flex-row shadow-xl shadow-slate-300">
+    <div
+    data-aos="zoom-in"
+        data-aos-offset="300"
+        data-aos-easing="ease-in-sine"  
+     onClick={()=>{ navigate(`/details/${Product._id}`)}} className="w-[218px] h-[288px] rounded-[50px] flex-row shadow-xl shadow-slate-300">
       <center>
         {Product.name === "loading" ? (
           // Display loading spinner if the product name is "loading"

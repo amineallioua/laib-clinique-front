@@ -2,12 +2,15 @@ import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useCart } from '../components/cartcontext';
 import { PiEmptyBold } from "react-icons/pi";
+import Buy from '../components/store/form';
+
 
 
 const Details = () => {
   const { id } = useParams(); // Get the product ID from the URL
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true); // Add loading state
+    const [isOpen, setIsOpen] = useState(true);
 
   const {  addToCart } = useCart();
   useEffect(() => {
@@ -34,7 +37,9 @@ const Details = () => {
     return <p className=' flex items-center justify-center  text-center font-extrabold text-[40px] text-black my-[200px]' > Product not found <br /> <PiEmptyBold  className=' text-center font-extrabold text-[80px] text-black ml-10 ' /> </p>; // Handle case when product is null or not found
   }
   
-
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
 
 
   return (
@@ -48,12 +53,12 @@ const Details = () => {
           <button onClick={() => {addToCart(product , 1)  }} className='w-[150px] h-[40px] sm:w-[250px] sm:h-[50px] sm:ml-10 rounded-[50px] font-bold text-white text-[20px] bg-[#5C0029]'>
             ADD TO CART
           </button>
-          <button className='w-[150px] ml-5 sm:ml-10 h-[40px] sm:w-[250px] sm:h-[50px] rounded-[50px] font-bold text-white text-[25px] bg-[#00B2FF]'>
+          <button onClick={  ()=>{toggleMenu()} } className='w-[150px] ml-5 sm:ml-10 h-[40px] sm:w-[250px] sm:h-[50px] rounded-[50px] font-bold text-white text-[25px] bg-[#00B2FF]'>
             BUY NOW
           </button>
         </div>
       </div>
-     
+        <Buy isOpen={isOpen} toggleMenu={toggleMenu} product={product} />
     </div>
   );
 };
