@@ -42,7 +42,7 @@ const Navbar = () => {
                         Store
                     </Link>
                     <Link
-                        to="/"
+                        to="/courses"
                         className={`text-[15px] font-bold leading-[21.94px] text-left ${isActive('/courses') ? 'border-b-2 border-blue-500' : ''}`}
                     >
                         Courses

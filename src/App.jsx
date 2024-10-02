@@ -5,8 +5,10 @@ import Home from './pages/home';
 import Appointment from './pages/appointment';
 import Store from './pages/store';
 import Details from './pages/details';
+import CourseD from './pages/courseDetails';
 import Cart from './components/cart'; // Assuming you have a Cart component
 import Footer from './components/footer';
+import Courses from './pages/courses'
 import { CartProvider } from './components/cartcontext';
 
 const App = () => {
@@ -26,6 +28,9 @@ const App = () => {
           <Route path="/appointment" element={<Appointment />} />
           <Route path="/store" element={<Store />} />
           <Route path="/details/:id" element={<Details />} />
+          <Route path="/courses" element={<Courses/>}  />   
+          <Route path="/courseDetails/:id" element={<CourseD />} />
+
         </Routes>
       </CartProvider>
       <Footer />

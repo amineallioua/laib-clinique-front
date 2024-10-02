@@ -1,18 +1,28 @@
 import { useState } from "react";
 import { IoClose } from "react-icons/io5";
+import { useCart } from '../cartcontext'; 
 
 
 
 
 
-const buy = ({isOpen , toggleMenu , product }) => {
+const buy = ({isOpen , toggleMenu , product , changetext }) => {
   const [clientName, setFullName] = useState('');
     const [phone, setPhoneNumber] = useState('');
     const [address, setAddress] = useState('');
     const [error, setError] = useState('');
+    const {emptyCart}=useCart()
 
   const handleSubmit = async (e) => {
+
     e.preventDefault();
+
+    if(!product || (Array.isArray(product) && product.length === 0)){
+      setError('cart is empty')
+
+    }else 
+
+    {
     setError('');
     const phoneRegex = /^[0-9]*$/; // Only digits allowed
     if (phone && !phoneRegex.test(phone)) {
@@ -53,13 +63,16 @@ const buy = ({isOpen , toggleMenu , product }) => {
       const result = await response.json();
       console.log('Order created successfully:', result);
       toggleMenu();
+      emptyCart();
+      changetext();
+      
   
       return result; // Return the result if needed
   
     } catch (error) {
       console.error('Error creating order:', error.message);
       // Handle any additional error behavior (e.g., alerting the user)
-    }
+    }}
   };
 
 
@@ -145,7 +158,7 @@ const buy = ({isOpen , toggleMenu , product }) => {
             order
        </button>
      </div>
-     <IoClose onClick={  toggleMenu} className='absolute top-5 right-5 text-[40px] text-[#585858]' />
+     <button><IoClose onClick={  toggleMenu} className='absolute top-5 right-5 text-[40px] text-[#585858]' /> </button>
    </form>
 
 

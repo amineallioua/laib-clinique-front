@@ -1,7 +1,8 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
-import Wcard from './workshopCard';
+
+import Coursecard from '../courses/courseCard'
 import 'swiper/css';
 import 'swiper/css/pagination';
 
@@ -66,11 +67,11 @@ const Hsec6 = () => {
             spaceBetween: 20,
           },
           768: {
-            slidesPerView: 2,
+            slidesPerView: 3,
             spaceBetween: 40,
           },
           1024: {
-            slidesPerView: 3,
+            slidesPerView: 4,
             spaceBetween: 50,
           },
         }}
@@ -81,16 +82,17 @@ const Hsec6 = () => {
 {loading ? (
           // Render placeholder cards while loading
           <>
-            <SwiperSlide><Wcard   workshop={{ title: "loading"}} /></SwiperSlide>
-            <SwiperSlide><Wcard   workshop= {{ title: "loading"}} /></SwiperSlide>
-            <SwiperSlide><Wcard   workshop= {{ title: "loading"}} /></SwiperSlide>
-            <SwiperSlide><Wcard   workshop= {{ title: "loading"}} /></SwiperSlide>
+            <SwiperSlide><Coursecard   Course={{ title: "loading"}} /></SwiperSlide>
+            <SwiperSlide><Coursecard   Course= {{ title: "loading"}} /></SwiperSlide>
+            <SwiperSlide><Coursecard   Course= {{ title: "loading"}} /></SwiperSlide>
+            <SwiperSlide><Coursecard   Course= {{ title: "loading"}} /></SwiperSlide>
+            <SwiperSlide><Coursecard   Course= {{ title: "loading"}} /></SwiperSlide>
           </>
         ) : (
           // Render actual data when loading is done
           workshop.map((item) => (
             <SwiperSlide key={item.id}> {/* Add a unique key prop */}
-              <Wcard workshop={item} /> {/* Pass title as prop */}
+              <Coursecard Course={item} /> {/* Pass title as prop */}
             </SwiperSlide>
           ))
         )}

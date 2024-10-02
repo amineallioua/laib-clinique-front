@@ -139,7 +139,7 @@ const Form = ({ selectedDate }) => {
             <img src={correct} alt="Appointment booked" className='w-[170px] h-[170px] mb-[60px]' />
             <h1 className='text-[22px] font-extrabold text-[#374885]'>Appointment Booked</h1>
           </center>
-          <IoClose onClick={toggleMenu} className='absolute top-10 right-10 text-[40px] text-[#585858]' />
+        <button>  <IoClose onClick={toggleMenu} className='absolute top-10 right-10 text-[40px] text-[#585858]' /></button>
         </div>
       </div>
     </div>
