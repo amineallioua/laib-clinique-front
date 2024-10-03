@@ -14,7 +14,7 @@ const Details = () => {
   const [course, setcourse] = useState(null);
   const [loading, setLoading] = useState(true); // Add loading state
     const [isOpen, setIsOpen] = useState(true);
-    const [isOpen1, setIsOpen1] = useState(false);
+    const [isOpen1, setIsOpen1] = useState(true);
 
   
 
@@ -77,7 +77,7 @@ const Details = () => {
         
         <Cform Name={course.title} isOpen={isOpen} toggleMenu={toggleMenu} toggleMenu1={toggleMenu1} />
 
-        <div className={`w-full flex ${isOpen1 ? 'block' : 'hidden'} left-0 justify-center bg-transparent backdrop-blur-sm h-full p-[10%] fixed top-0 z-40`} onClick={toggleMenu1} >
+        <div className={`w-full flex transition-opacity duration-300 ease-in-out ${isOpen1 ? 'opacity-0 pointer-events-none' : 'opacity-100'} left-0 justify-center bg-transparent backdrop-blur-sm h-full p-[10%] fixed top-0 z-40`} onClick={toggleMenu1} >
         <div 
         onClick={(e) => e.stopPropagation()}
         className="w-[650px] h-[380px] py-10 bg-white rounded-[50px] mt-[200px] sm:mt-auto shadow-2xl flex-row relative justify-center">

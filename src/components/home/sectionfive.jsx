@@ -6,7 +6,7 @@ import shape from '../../assets/Component2.png';
 const Hsec5 = () => {
     return (
         <section data-aos="fade-right"
-        data-aos-offset="300"
+        data-aos-offset="200"
         data-aos-easing="ease-in-sine"
            className="w-screen      bg-[#d4f5ff]  p-12 " >
            <div className="sm:flex  flex-row items-center justify-between " >

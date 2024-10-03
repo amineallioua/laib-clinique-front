@@ -5,7 +5,7 @@ import Card from './cards';
 const Hsec4 = () => {
     return ( 
         <section data-aos="fade-left"
-        data-aos-offset="300"
+        data-aos-offset="200"
         data-aos-easing="ease-in-sine"
          className="w-screen   px-12 mx-auto bg-[#d4f5ff] relative  flex-row pt-[80px] " >
                 <h1 className="font-bold md:font-extrabold text-[36px] mb-5 mx-auto text-center " >OUR SERVICES</h1>

@@ -7,7 +7,7 @@ import { useCart } from '../cartcontext';
 
 
 
-const buy = ({isOpen , toggleMenu , product , changetext , toggleMenu1 }) => {
+const buy = ({isOpen , toggleMenu , product ,  toggleMenu1 }) => {
   const [clientName, setFullName] = useState('');
     const [phone, setPhoneNumber] = useState('');
     const [address, setAddress] = useState('');
@@ -62,11 +62,11 @@ const buy = ({isOpen , toggleMenu , product , changetext , toggleMenu1 }) => {
   
       // Parse the response JSON
       const result = await response.json();
-      console.log('Order created successfully:', result);
+    
       toggleMenu1();
       toggleMenu();
       emptyCart();
-      changetext();
+
       
   
       return result; // Return the result if needed
@@ -81,7 +81,7 @@ const buy = ({isOpen , toggleMenu , product , changetext , toggleMenu1 }) => {
 
 
     return ( 
-   <div className={`w-full flex  left-0 justify-center items-center bg-transparent backdrop-blur-sm h-full p-[10%] fixed top-0 z-40 ${isOpen ? 'hidden' : 'block'}`} onClick={toggleMenu} >  
+   <div className={`w-full flex   left-0 justify-center items-center bg-transparent backdrop-blur-sm h-full p-[10%] fixed top-0 z-40 transition-opacity duration-300 ease-in-out ${isOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'}`} onClick={toggleMenu} >  
         <div onClick={(e) => e.stopPropagation()} className="sm:w-[430px] sm:h-[500px] shadow-lg shadow-grey-00 w-[330px] h-[480px] mb-10 bg-white  rounded-[50px] shadow-3xl shadow-black flex-col " >
         
    <form  onSubmit={handleSubmit} className="px-8 pt-[55px] pb-8 mb-1 relative">
@@ -160,7 +160,7 @@ const buy = ({isOpen , toggleMenu , product , changetext , toggleMenu1 }) => {
             order
        </button>
      </div>
-     <button><IoClose onClick={  toggleMenu} className='absolute top-5 right-5 text-[40px] text-[#585858]' /> </button>
+     <button><IoClose onClick={ toggleMenu} className='absolute top-5 right-5 text-[40px] text-[#585858]' /> </button>
    </form>
 
 

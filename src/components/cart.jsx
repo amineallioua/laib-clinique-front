@@ -77,7 +77,7 @@ const Cart = () => {
       </div>
 
 
-
+ 
         <div className="text-center flex justify-between items-center font-semibold text-[16px]"> {/* Added 'items-center' */}
           <FaCircleMinus 
             onClick={() => addToCart(item, 2)} // Adjust quantity decrement
@@ -102,7 +102,7 @@ const Cart = () => {
       {showMessage &&<p className=" text-green-500 font-bold inline " >    order done! <IoCheckmarkDoneCircle/> </p>}
       <button onClick={toggleMenu} className="w-[120px] p-2 rounded-[10px]  bg-black text-[20px] absolute right-10 bottom-8 text-white font-bold  " > checkout </button>
 
-      <Buy isOpen={isOpen1} toggleMenu={toggleMenu} product={cart} changetext={changetext} />
+      <Buy isOpen={isOpen1} toggleMenu={toggleMenu} product={cart} toggleMenu1={changetext} />
       
     </div>
   );

@@ -3,7 +3,7 @@ import { IoClose } from "react-icons/io5";
 import React, { useState } from 'react';
 
 const Form = ({ selectedDate }) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
   const [fullName, setFullName] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [location, setLocation] = useState('');
@@ -131,7 +131,7 @@ const Form = ({ selectedDate }) => {
         </div>
       </form>
 
-      <div className={`w-full flex ${isOpen ? 'block' : 'hidden'} left-0 justify-center bg-transparent backdrop-blur-sm h-full p-[10%] fixed top-0 z-40`} onClick={toggleMenu} >
+      <div className={`w-full flex transition-opacity duration-300 ease-in-out ${isOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'} left-0 justify-center bg-transparent backdrop-blur-sm h-full p-[10%] fixed top-0 z-40`} onClick={toggleMenu} >
         <div 
         onClick={(e) => e.stopPropagation()}
         className="w-[650px] h-[380px] py-10 bg-white rounded-[50px] mt-[200px] sm:mt-auto shadow-2xl flex-row relative justify-center">
