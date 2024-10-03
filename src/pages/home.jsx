@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Footer from '../components/footer';
 import Hsec1 from '../components/home/sectionone'
 import Hsec2 from '../components/home/sectiontwo';
 import Hsec3 from '../components/home/sectionthree';
@@ -23,6 +23,8 @@ function Home(){
      <Hsec4/>
      <Hsec5/>
      <Hsec6/>
+     <Footer />
+
 
     
 

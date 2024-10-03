@@ -3,6 +3,8 @@ import { useState, useEffect } from 'react';
 import { PiEmptyBold } from "react-icons/pi";
 import pngwing from '.././assets/course.jpg';
 import Cform from '../components/courses/courseform'
+import correct from '.././assets/correct.png';
+import { IoClose } from "react-icons/io5";
 
 
 
@@ -12,6 +14,9 @@ const Details = () => {
   const [course, setcourse] = useState(null);
   const [loading, setLoading] = useState(true); // Add loading state
     const [isOpen, setIsOpen] = useState(true);
+    const [isOpen1, setIsOpen1] = useState(false);
+
+  
 
   
   useEffect(() => {
@@ -41,6 +46,9 @@ const Details = () => {
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
+  const toggleMenu1 = () => {
+    setIsOpen1(!isOpen1);
+  };
 
 
   return (
@@ -67,7 +75,19 @@ const Details = () => {
           </button>
         </div>
         
-        <Cform Name={course.title} isOpen={isOpen} toggleMenu={toggleMenu} />
+        <Cform Name={course.title} isOpen={isOpen} toggleMenu={toggleMenu} toggleMenu1={toggleMenu1} />
+
+        <div className={`w-full flex ${isOpen1 ? 'block' : 'hidden'} left-0 justify-center bg-transparent backdrop-blur-sm h-full p-[10%] fixed top-0 z-40`} onClick={toggleMenu1} >
+        <div 
+        onClick={(e) => e.stopPropagation()}
+        className="w-[650px] h-[380px] py-10 bg-white rounded-[50px] mt-[200px] sm:mt-auto shadow-2xl flex-row relative justify-center">
+          <center>
+            <img src={correct} alt="Appointment booked" className='w-[170px] h-[170px] mb-[60px]' />
+            <h1 className='text-[22px] font-extrabold text-[#374885]'>  enrollement demande done <br /> wait the call </h1>
+          </center>
+        <button>  <IoClose onClick={toggleMenu1} className='absolute top-10 right-10 text-[40px] text-[#585858]' /></button>
+        </div>
+      </div>
        
     </div>
   );

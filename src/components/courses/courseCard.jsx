@@ -10,10 +10,10 @@ const Itemcard = ({ Course }) => {
     AOS.init({ duration: 1000 });
   }, []);
   return (
-
+<button>
     <div
    
-     onClick={()=>{ navigate(`/courseDetails/${Course._id}`)}} className="w-[278px] mb-5 bg-white h-[310px] rounded-[50px] mt-5 flex-row shadow-xl p-4 overflow-hidden shadow-slate-300">
+     onClick={()=>{ navigate(`/courseDetails/${Course._id}`)}} className="w-[278px] mb-20 hover:scale-110 ease-in-out duration-300 hover:bg-gray-100   hover:shadow-xl hover:shadow-gray-400  bg-white h-[310px] rounded-[50px] mt-5 flex-row shadow-xl p-4 overflow-hidden shadow-slate-300">
       <center>
         {Course.title === "loading" ? (
           // Display loading spinner if the Course name is "loading"
@@ -48,7 +48,7 @@ const Itemcard = ({ Course }) => {
           </>
         )}
       </center>
-    </div>
+    </div></button>
   );
 }
 

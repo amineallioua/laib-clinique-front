@@ -3,14 +3,24 @@ import { useState, useEffect } from 'react';
 import { useCart } from '../components/cartcontext';
 import { PiEmptyBold } from "react-icons/pi";
 import Buy from '../components/store/form';
+import itemimg from '.././assets/pngwing2.png'
+import correct from '.././assets/correct.png';
+import { IoClose } from "react-icons/io5";
 
 
 
+ 
+ 
 const Details = () => {
   const { id } = useParams(); // Get the product ID from the URL
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true); // Add loading state
     const [isOpen, setIsOpen] = useState(true);
+    const [isOpen1, setIsOpen1] = useState(false);
+
+const toggleMenu1 = () => {
+  setIsOpen1(!isOpen1);
+};
 
   const {  addToCart } = useCart();
   useEffect(() => {
@@ -44,7 +54,11 @@ const Details = () => {
 
   return (
     <div className='max-w-[96%] shadow-xl shadow-slate-300 py-5 mt-[100px] px-5 mb-[70px] sm:justify-normal justify-center rounded-[50px] lg:flex flex-row items-center bg-[#FFCAD4] ml-[2%]'>
-      <div className='sm:w-[600px] w-[350px] bg-white h-[400px] sm:h-[570px] rounded-[50px]'></div>
+      <div className='sm:w-[600px] overflow-hidden p-8 w-[350px] bg-white h-[400px] sm:h-[570px] rounded-[50px]'> 
+        <img src={itemimg}  
+        alt=""
+        className=' w-full h-full ' />
+      </div>
       <div className='max-w-[600px] ml-5 h-[500px] relative'>
         <h1 className='sm:text-[60px] text-[40px] font-bold text-black inline'>{product.name}</h1>
         <h1 className='sm:text-[70px] text-[40px] ml-16 font-extrabold inline text-white'>{product.price}</h1>
@@ -58,7 +72,21 @@ const Details = () => {
           </button>
         </div>
       </div>
-        <Buy isOpen={isOpen} toggleMenu={toggleMenu} product={product} />
+        <Buy isOpen={isOpen} toggleMenu={toggleMenu} product={product} toggleMenu1={toggleMenu1} />
+
+
+
+        <div className={`w-full flex ${isOpen1 ? 'block' : 'hidden'} left-0 justify-center bg-transparent backdrop-blur-sm h-full p-[10%] fixed top-0 z-40`} onClick={toggleMenu1} >
+        <div 
+        onClick={(e) => e.stopPropagation()}
+        className="w-[650px] h-[380px] py-10 bg-white rounded-[50px] mt-[200px] sm:mt-auto shadow-2xl flex-row relative justify-center">
+          <center>
+            <img src={correct} alt="Appointment booked" className='w-[170px] h-[170px] mb-[60px]' />
+            <h1 className='text-[22px] font-extrabold text-[#374885]'>product ordered</h1>
+          </center>
+        <button>  <IoClose onClick={toggleMenu1} className='absolute top-10 right-10 text-[40px] text-[#585858]' /></button>
+        </div>
+      </div>
     </div>
   );
 };

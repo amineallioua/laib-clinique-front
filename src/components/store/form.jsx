@@ -6,13 +6,14 @@ import { useCart } from '../cartcontext';
 
 
 
-const buy = ({isOpen , toggleMenu , product , changetext }) => {
+
+const buy = ({isOpen , toggleMenu , product , changetext , toggleMenu1 }) => {
   const [clientName, setFullName] = useState('');
     const [phone, setPhoneNumber] = useState('');
     const [address, setAddress] = useState('');
     const [error, setError] = useState('');
     const {emptyCart}=useCart()
-
+   
   const handleSubmit = async (e) => {
 
     e.preventDefault();
@@ -62,6 +63,7 @@ const buy = ({isOpen , toggleMenu , product , changetext }) => {
       // Parse the response JSON
       const result = await response.json();
       console.log('Order created successfully:', result);
+      toggleMenu1();
       toggleMenu();
       emptyCart();
       changetext();
@@ -163,7 +165,9 @@ const buy = ({isOpen , toggleMenu , product , changetext }) => {
 
 
 
-   </div> </div>
+   </div>
+ 
+    </div>
      );
 }
  

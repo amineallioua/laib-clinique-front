@@ -7,7 +7,6 @@ import Store from './pages/store';
 import Details from './pages/details';
 import CourseD from './pages/courseDetails';
 import Cart from './components/cart'; // Assuming you have a Cart component
-import Footer from './components/footer';
 import Courses from './pages/courses'
 import { CartProvider } from './components/cartcontext';
 
@@ -33,7 +32,6 @@ const App = () => {
 
         </Routes>
       </CartProvider>
-      <Footer />
     </>
   );
 };

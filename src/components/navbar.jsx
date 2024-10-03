@@ -80,7 +80,7 @@ const Navbar = () => {
                     </Link>
                     <Link
                         onClick={toggleMenu}
-                        to="/store"
+                        to="/Store"
                         className={`block px-3 py-2 text-lg hover:bg-blue-600 ${isActive('/store') ? 'bg-blue-600' : ''}`}
                     >
                         Store

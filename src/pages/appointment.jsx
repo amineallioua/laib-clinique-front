@@ -2,6 +2,7 @@
 import Form from '../components/appointement/form'
 import Calender from '../components/appointement/calendar'
 import React, { useState } from 'react';
+import Footer from '../components/footer';
 
 const appointment = () => {
     const [selectedDate, setSelectedDate] = useState(null);  // State for storing the selected date
@@ -21,8 +22,10 @@ const appointment = () => {
             <Form selectedDate={selectedDate}  />
 
         </div>
-     
+      <Footer />
+
         </section>
+        
        
      
      );

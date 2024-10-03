@@ -5,6 +5,7 @@ import { FaCirclePlus } from "react-icons/fa6";
 import { useCart } from './cartcontext'; 
 import Buy from '../components/store/form';
 import { IoCheckmarkDoneCircle } from "react-icons/io5";
+import itemimg from '../assets/pngwing2.png'
 
 const Cart = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -49,7 +50,7 @@ const Cart = () => {
 
   return ( 
     
-    <div className={` shadow-xl shadow-slate-300 w-[425px] h-[450px]  bg-[#cee7f0] rounded-[50px] fixed top-[20%] px-8 py-5 z-30 transition-all duration-500 ease-in-out transform ${isOpen ? 'right-0' : '-right-[400px]'}`}>
+    <div className={` shadow-xl shadow-slate-300  w-[350px] sm:w-[425px] h-[450px]  bg-[#cee7f0] rounded-[50px] fixed top-[20%] px-8 py-5 z-30 transition-all duration-500 ease-in-out transform ${isOpen ? 'right-0' : ' right-[-330px] sm:right-[-400px]'}`}>
       <button 
         onClick={toggleOpen} 
         className="w-[70px] h-[70px] py-5 pl-3 text-[25px] rounded-full bg-[#cee7f0] absolute left-[-40px] top-[45%]">
@@ -67,21 +68,29 @@ const Cart = () => {
 
   <div className="overflow-scroll h-[210px] mt-5 bg-white rounded-[10px] "> {/* Adjust height as needed */}
     {cart.map((item) => (
-      <div key={item.id} className="border-b-2 border-black w-full font-semibold text-[16px] grid grid-cols-4 text-left text-black px-5 py-3">
-        <div className="col-span-2">{item.name}</div>
+      <div key={item.id} className="border-b-2 border-black w-full font-semibold text-[16px] grid grid-cols-4 text-left text-black px-2 py-3">
+        <div className="col-span-2 flex items-center "> 
+           <div className=" mr-1 h-7 sm:h-10 aspect-square rounded-[10px] " >
+            <img src={itemimg} className=" w-full h-full " alt="" /> 
+        </div> 
+               <h1 className=" text-[12px] sm:text-[15px] " >{item.name}</h1> 
+      </div>
+
+
+
         <div className="text-center flex justify-between items-center font-semibold text-[16px]"> {/* Added 'items-center' */}
           <FaCircleMinus 
             onClick={() => addToCart(item, 2)} // Adjust quantity decrement
-            className="text-[25px] cursor-pointer" 
+            className="sm:text-[25px] text-[20px] cursor-pointer" 
           />
           {item.quantity}
           <FaCirclePlus 
             onClick={() => addToCart(item, 1)} // Increment quantity
-            className="text-[25px] cursor-pointer" 
+            className="sm:text-[25px] text-[20px] cursor-pointer" 
           />
         </div>
         <div className="text-center items-center flex justify-center" >
-          ${(item.price * item.quantity).toFixed(2)}
+          ${(item.price * item.quantity).toFixed(0)}
         </div>
       </div>
     ))}
@@ -89,11 +98,12 @@ const Cart = () => {
 </div>
 
       
-      <h1 className="text-black font-bold text-[25px] mt-16">TOTAL: ${total.toFixed(2)}</h1>
+      <h1 className="text-black font-bold text-[25px] mt-16">TOTAL: ${total.toFixed(0)}</h1>
       {showMessage &&<p className=" text-green-500 font-bold inline " >    order done! <IoCheckmarkDoneCircle/> </p>}
       <button onClick={toggleMenu} className="w-[120px] p-2 rounded-[10px]  bg-black text-[20px] absolute right-10 bottom-8 text-white font-bold  " > checkout </button>
 
       <Buy isOpen={isOpen1} toggleMenu={toggleMenu} product={cart} changetext={changetext} />
+      
     </div>
   );
 };

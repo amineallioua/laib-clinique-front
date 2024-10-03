@@ -2,7 +2,7 @@
      import { IoClose } from "react-icons/io5";
      
      
-     const Cform = ({Name , toggleMenu , isOpen }) => {
+     const Cform = ({Name , toggleMenu , isOpen ,  toggleMenu1}) => {
         const [error, setError] = useState('');
         const [name, setname] = useState('');
         const [phone, setphone] = useState('');
@@ -42,7 +42,8 @@
               if (!response.ok) {
                 throw new Error('Failed to create training');
               }
-        
+              toggleMenu1();
+              toggleMenu();
               // Show confirmation message
               
             } catch (error) {

@@ -124,7 +124,7 @@ const Form = ({ selectedDate }) => {
         <div className="flex items-center justify-center">
           <button
             type="submit"
-            className="bg-[#5188F2] w-[85%] hover:bg-blue-700 text-white font-extrabold py-2 px-4 rounded-xl focus:outline-none focus:shadow-outline"
+            className="bg-[#5188F2] w-[85%] hover:bg-blue-700 hover:scale-105 ease-in-out duration-300   hover:shadow-xl hover:shadow-gray-400 text-white font-extrabold py-2 px-4 rounded-xl focus:outline-none focus:shadow-outline"
           >
             Book an Appointment
           </button>

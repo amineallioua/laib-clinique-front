@@ -14,7 +14,7 @@ const Itemcard = ({ Product }) => {
     data-aos="zoom-in"
         data-aos-offset="300"
         data-aos-easing="ease-in-sine"  
-     onClick={()=>{ navigate(`/details/${Product._id}`)}} className="w-[218px] h-[288px] rounded-[50px] flex-row shadow-xl shadow-slate-300">
+     onClick={()=>{ navigate(`/details/${Product._id}`)}} className="  relative overflow-hidden  hover:bg-pink-50   hover:shadow-xl hover:shadow-gray-400 w-[218px] h-[288px] rounded-[50px] flex-row shadow-xl shadow-slate-300">
       <center>
         {Product.name === "loading" ? (
           // Display loading spinner if the product name is "loading"
@@ -40,10 +40,11 @@ const Itemcard = ({ Product }) => {
         ) : (
           // Render actual content when the data is available
           <>
-            <div className='h-2/3 aspect-square pt-10'>
+            <div className='h-2/3 aspect-square pt-10 relative overflow-hidden'>
               <img src={itemimg} alt="" />
             </div>
             <h1 className="text-xl font-bold text-black">{Product.name}</h1>
+            <div className=' bg-[#FFCAD4] font-border text-white text-[18px] font-extrabold absolute rotate-45 top-6 px-20 py-1 right-[-70px] text-center ' >  {Product.price.toFixed(0) } DA </div>
           </>
         )}
       </center>
