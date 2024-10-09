@@ -47,12 +47,7 @@ const Navbar = () => {
                     >
                         Courses
                     </Link>
-                    <Link
-                        to="/"
-                        className={`text-[15px] font-bold leading-[21.94px] text-left ${isActive('/about') ? 'border-b-2 border-blue-500' : ''}`}
-                    >
-                        About Us
-                    </Link>
+                  
                 </div>
 
                 {/* Mobile Menu Button */}

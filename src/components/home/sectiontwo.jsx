@@ -6,7 +6,7 @@ import vector from '../../assets/Vector.png'
 function Hsec2(){
 
     return(
-        <section data-aos="fade-left"
+        <section data-aos="fade-right"
         data-aos-offset="200"
         data-aos-easing="ease-in-sine"
          className='flex  md:flex-row items-center justify-between  w-screen md:pb-[200px]  px-12 mx-auto bg-[#d4f5ff] pt-20 relative lg:h-screen' >

@@ -8,7 +8,7 @@ const Hsec5 = () => {
         <section data-aos="fade-right"
         data-aos-offset="200"
         data-aos-easing="ease-in-sine"
-           className="w-screen      bg-[#d4f5ff]  p-12 " >
+           className="w-full overflow-hidden      bg-[#d4f5ff]  p-12 " >
            <div className="sm:flex  flex-row items-center justify-between " >
 
            <div className='sm:w-1/3 h-auto  bottom-5 md:left-18'>

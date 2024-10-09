@@ -43,7 +43,7 @@ const Hsec6 = () => {
   };
 
   return (
-    <section data-aos="fade-left"
+    <section data-aos="fade-down"
     data-aos-offset="200"
     data-aos-easing="ease-in-sine"
      className="w-screen pb-16 bg-[#d4f5ff] justify-between text-center py-12">

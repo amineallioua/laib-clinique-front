@@ -65,7 +65,7 @@ return (
 
 
   {/* Image Block */}
-  <div className="w-auto   py-8s  z-0 flex justify-center ">
+  <div className="w-auto   py-8  z-0 flex justify-center ">
     <img 
       src={nurce} 
       alt="Sample" 
