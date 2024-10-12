@@ -40,7 +40,7 @@ const Itemcard = ({ Course }) => {
           // Render actual content when the data is available
           <>
             <div className=' bg-gray-100 h-[150px] overflow-hidden  rounded-[20px] '>
-              <img src={pngwing} alt="" className=' w-full h-full ' />
+              <img src={Course.photo.replace(/\\/g, '/')} alt="" className=' w-full h-full ' />
             </div>
             <h1 className="text-xl text-left font-bold text-black">{Course.title}</h1>
             <div className='  text-black text-left h-[72px] overflow-hidden ' > <p>  {Course.description}  </p> </div>

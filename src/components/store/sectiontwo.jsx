@@ -17,6 +17,7 @@ const Ssec2 = () => {
           setProducts(result); 
           setLoading(false);
           
+          
         } catch (error) {
           console.error('Error fetching products:', error);
         }

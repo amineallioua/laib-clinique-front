@@ -4,7 +4,7 @@ import { useCart } from '../cartcontext';
 
 
 
-
+ 
 
 
 const buy = ({isOpen , toggleMenu , product ,  toggleMenu1 }) => {
@@ -160,7 +160,7 @@ const buy = ({isOpen , toggleMenu , product ,  toggleMenu1 }) => {
             order
        </button>
      </div>
-     <button><IoClose onClick={ toggleMenu} className='absolute top-5 right-5 text-[40px] text-[#585858]' /> </button>
+     <IoClose onClick={ toggleMenu} className='absolute top-5 right-5 text-[40px] text-[#585858]' /> 
    </form>
 
 

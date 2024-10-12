@@ -71,7 +71,7 @@ const Cart = () => {
       <div key={item.id} className="border-b-2 border-black w-full font-semibold text-[16px] grid grid-cols-4 text-left text-black px-2 py-3">
         <div className="col-span-2 flex items-center "> 
            <div className=" mr-1 h-7 sm:h-10 aspect-square rounded-[10px] " >
-            <img src={itemimg} className=" w-full h-full " alt="" /> 
+            <img src={item.photo} className=" w-full h-full " alt="" /> 
         </div> 
                <h1 className=" text-[12px] sm:text-[15px] " >{item.name}</h1> 
       </div>
