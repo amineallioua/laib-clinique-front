@@ -39,9 +39,9 @@ const Ssec2 = () => {
            <CourseCard  Course={{title:"loading"}} />
            <CourseCard  Course={{title:"loading"}} />
            <CourseCard  Course={{title:"loading"}} />
-<CourseCard  Course={{title:"loading"}} />
-<CourseCard  Course={{title:"loading"}} />
-<CourseCard  Course={{title:"loading"}} />
+          <CourseCard  Course={{title:"loading"}} />
+          <CourseCard  Course={{title:"loading"}} />
+          <CourseCard  Course={{title:"loading"}} />
            
           
           </>

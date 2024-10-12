@@ -9,6 +9,8 @@ const Itemcard = ({ Course }) => {
   useEffect(() => {
     AOS.init({ duration: 1000 });
   }, []);
+
+  const  photourl =Course.photo.replace(/\\/g, '/')
   return (
 <button>
     <div
@@ -38,14 +40,14 @@ const Itemcard = ({ Course }) => {
           </div>
         ) : (
           // Render actual content when the data is available
-          <>
+          <div className=' relative '>
             <div className=' bg-gray-100 h-[150px] overflow-hidden  rounded-[20px] '>
-              <img src={Course.photo.replace(/\\/g, '/')} alt="" className=' w-full h-full ' />
+              <img src={`http://localhost:4000/${photourl}`} alt="" className=' w-full h-full ' />
             </div>
             <h1 className="text-xl text-left font-bold text-black">{Course.title}</h1>
             <div className='  text-black text-left h-[72px] overflow-hidden ' > <p>  {Course.description}  </p> </div>
-            <p className=' text-right text-[20px] font-semibold text-green-400 mr-2 ' > free </p>
-          </>
+            <p className=' text-right text-[20px] font-semibold text-green-400 mr-2 absolute bottom-5 right-0 ' > {Course.type} </p>
+          </div>
         )}
       </center>
     </div></button>
