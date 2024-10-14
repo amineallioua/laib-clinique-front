@@ -3,11 +3,15 @@ import nurce from '../../assets/Component.png'
 import claws from '../../assets/claws.png'
 import avicii from '../../assets/avicii.png'
 import grid from '../../assets/grid.png'
+import { useNavigate } from 'react-router-dom';
 
 function Hsec1(){
-
+  const navigate = useNavigate();
 return (
-    <section  className='flex flex-col md:flex-row items-center mt-[68px] justify-between  w-screen   px-12 mx-auto bg-[#d4f5ff] overflow-hidden relative' >
+    <section data-aos="fade-right"
+    data-aos-offset="200"
+    data-aos-easing="ease-in-sine"
+    className='flex flex-col md:flex-row items-center mt-[68px] justify-between  w-screen   px-12 mx-auto bg-[#d4f5ff] overflow-hidden relative' >
       <div className="mt-[150px] z-10 md:w-1/2 md:mt-0" >
 
      
@@ -25,7 +29,7 @@ return (
 
  
 
-        <button className='bg-[#4BA6C3]  text-white px-4 py-2 rounded-3xl font-thin' >
+        <button onClick={ ()=>{navigate( `/appointment/`  )}} className='bg-[#4BA6C3] hover:bg-blue-700 hover:scale-105 ease-in-out duration-300   hover:shadow-xl hover:shadow-gray-400 text-white px-4 py-2 rounded-3xl font-thin' >
         Book an Appointment NOW
         </button>
 
@@ -61,7 +65,7 @@ return (
 
 
   {/* Image Block */}
-  <div className="w-auto   py-8s  z-0 flex justify-center ">
+  <div className="w-auto   py-8  z-0 flex justify-center ">
     <img 
       src={nurce} 
       alt="Sample" 
