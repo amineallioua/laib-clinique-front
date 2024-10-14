@@ -1,6 +1,7 @@
 import correct from '../../assets/correct.png';
 import { IoClose } from "react-icons/io5";
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Form = ({ selectedDate }) => {
   const [isOpen, setIsOpen] = useState(true);
@@ -9,6 +10,7 @@ const Form = ({ selectedDate }) => {
   const [location, setLocation] = useState('');
   const [appointmentType, setAppointmentType] = useState('');
   const [error, setError] = useState('');
+  const navigate = useNavigate();
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -33,6 +35,7 @@ const Form = ({ selectedDate }) => {
       date: selectedDate ? selectedDate.format('YYYY-MM-DD') : '', // Use selected date
       category: appointmentType,
     };
+    console.log(appointmentData)
 
     try {
       const response = await fetch('http://localhost:4000/api/appointments/create_appointment', {
@@ -131,7 +134,7 @@ const Form = ({ selectedDate }) => {
         </div>
       </form>
 
-      <div className={`w-full flex transition-opacity duration-300 ease-in-out ${isOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'} left-0 justify-center bg-transparent backdrop-blur-sm h-full p-[10%] fixed top-0 z-40`} onClick={toggleMenu} >
+      <div className={`w-full flex transition-opacity duration-300 ease-in-out ${isOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'} left-0 justify-center bg-transparent backdrop-blur-sm h-full p-[10%] fixed top-0 z-40`} onClick={ ()=> {toggleMenu() ; navigate(`/`)} } >
         <div 
         onClick={(e) => e.stopPropagation()}
         className="w-[650px] h-[380px] py-10 bg-white rounded-[50px] mt-[200px] sm:mt-auto shadow-2xl flex-row relative justify-center">
@@ -139,7 +142,7 @@ const Form = ({ selectedDate }) => {
             <img src={correct} alt="Appointment booked" className='w-[170px] h-[170px] mb-[60px]' />
             <h1 className='text-[22px] font-extrabold text-[#374885]'>Appointment Booked</h1>
           </center>
-        <button>  <IoClose onClick={toggleMenu} className='absolute top-10 right-10 text-[40px] text-[#585858]' /></button>
+        <button>  <IoClose onClick={ ()=> {toggleMenu() ; navigate(`/`)} } className='absolute top-10 right-10 text-[40px] text-[#585858]' /></button>
         </div>
       </div>
     </div>
