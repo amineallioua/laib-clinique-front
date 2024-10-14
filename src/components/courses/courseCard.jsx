@@ -4,13 +4,20 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from 'react';
 
+const truncateText = (text, maxLength) => {
+  return text.length > maxLength ? text.substring(0, maxLength) + '...' : text;
+};
+
 const Itemcard = ({ Course }) => {
   const navigate = useNavigate();
   useEffect(() => {
     AOS.init({ duration: 1000 });
   }, []);
 
-  const  photourl =Course.photo.replace(/\\/g, '/')
+  
+  const photourl = Course?.photo ? Course.photo.replace(/\\/g, '/') :
+   'default-image.jpg';
+
   return (
 <button>
     <div
@@ -44,9 +51,14 @@ const Itemcard = ({ Course }) => {
             <div className=' bg-gray-100 h-[150px] overflow-hidden  rounded-[20px] '>
               <img src={`http://localhost:4000/${photourl}`} alt="" className=' w-full h-full ' />
             </div>
-            <h1 className="text-xl text-left font-bold text-black">{Course.title}</h1>
-            <div className='  text-black text-left h-[72px] overflow-hidden ' > <p>  {Course.description}  </p> </div>
-            <p className=' text-right text-[20px] font-semibold text-green-400 mr-2 absolute bottom-5 right-0 ' > {Course.type} </p>
+            <h1 className="text-md mt-2 h-12 overflow-hidden text-left font-bold text-black">{Course.title} </h1>
+            <div className=' text-[14px] text-black text-left absolute text center p-0 ' > <p> {truncateText(Course.description , 105 )  }  </p> </div>
+
+            <div className= {`   ${Course.type === "free" ? "bg-green-500" : 
+                   Course.type === "paid" ? "bg-red-500" : 
+                   "bg-blue-500"} 
+                   font-border text-white text-[18px] font-extrabold absolute rotate-45 top-3 px-20 py-1 right-[-70px] text-center `} >  
+            {Course.type} </div>
           </div>
         )}
       </center>
