@@ -19,24 +19,31 @@ const Form = ({ selectedDate }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
-    const phoneRegex = /^[0-9]*$/; // Only digits allowed
+    const phoneRegex = /^[0-9]*$/;
     if (phoneNumber && !phoneRegex.test(phoneNumber)) {
       setError('Phone number must be a valid number.');
       return;
-    }if( phoneNumber.length > 10  ){
-      setError('Phone number must be a shorter number ')
+    }
+    if (phoneNumber.length > 10) {
+      setError('Phone number must be a shorter number');
       return;
     }
-
+  
     const appointmentData = {
       fullName,
       phoneNumber,
       location,
-      date: selectedDate ? selectedDate.format('YYYY-MM-DD') : '', // Use selected date
+      date: selectedDate ? selectedDate.format('YYYY-MM-DD') : '',
       category: appointmentType,
     };
+<<<<<<< HEAD
     console.log(appointmentData)
 
+=======
+  
+    console.log('Appointment Data:', appointmentData); // Log the data before sending
+  
+>>>>>>> origin/main
     try {
       const response = await fetch('http://localhost:4000/api/appointments/create_appointment', {
         method: 'POST',
@@ -45,18 +52,17 @@ const Form = ({ selectedDate }) => {
         },
         body: JSON.stringify(appointmentData),
       });
-
+  
       if (!response.ok) {
         throw new Error('Failed to create appointment');
       }
-
-      // Show confirmation message
+  
       toggleMenu();
     } catch (error) {
       console.error('Error:', error);
     }
   };
-
+  
   return (
     <div className="sm:w-[430px] sm:h-[500px] w-[330px] h-[480px] mb-10 bg-white rounded-[50px] shadow-3xl shadow-black flex-col justify-between">
       <form onSubmit={handleSubmit} className="px-8 pt-[55px] pb-8 mb-1">
