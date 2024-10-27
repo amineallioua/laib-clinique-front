@@ -14,14 +14,7 @@ const Itemcard = ({ Course }) => {
     AOS.init({ duration: 1000 });
   }, []);
 
-<<<<<<< HEAD
-  
-  const photourl = Course?.photo ? Course.photo.replace(/\\/g, '/') :
-   'default-image.jpg';
-
-=======
   const  photourl =Course?.photo ? Course.photo.replace(/\\/g, '/') : 'default-image.jpg';
->>>>>>> origin/main
   return (
 <button>
     <div
