@@ -36,14 +36,9 @@ const Form = ({ selectedDate }) => {
       date: selectedDate ? selectedDate.format('YYYY-MM-DD') : '',
       category: appointmentType,
     };
-<<<<<<< HEAD
-    console.log(appointmentData)
-
-=======
   
     console.log('Appointment Data:', appointmentData); // Log the data before sending
   
->>>>>>> origin/main
     try {
       const response = await fetch('http://localhost:4000/api/appointments/create_appointment', {
         method: 'POST',
@@ -64,7 +59,7 @@ const Form = ({ selectedDate }) => {
   };
   
   return (
-    <div className="sm:w-[430px] sm:h-[500px] w-[330px] h-[480px] mb-10 bg-white rounded-[50px] shadow-3xl shadow-black flex-col justify-between">
+    <div className="lg:w-[430px]  md:w-[600px] sm:w-[500px] xs:w-full  w-[320px] sm:h-[500px]  h-[480px] mb-10 bg-white rounded-[50px] shadow-3xl shadow-black flex-col justify-between">
       <form onSubmit={handleSubmit} className="px-8 pt-[55px] pb-8 mb-1">
         <div className="mb-2">
           <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="fullName">
