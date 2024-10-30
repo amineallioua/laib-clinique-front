@@ -1,6 +1,7 @@
 import correct from '../../assets/correct.png';
 import { IoClose } from "react-icons/io5";
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Form = ({ selectedDate }) => {
   const [isOpen, setIsOpen] = useState(true);
@@ -9,6 +10,7 @@ const Form = ({ selectedDate }) => {
   const [location, setLocation] = useState('');
   const [appointmentType, setAppointmentType] = useState('');
   const [error, setError] = useState('');
+  const navigate = useNavigate();
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -17,13 +19,21 @@ const Form = ({ selectedDate }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
+    
+    // Validate phone number
     const phoneRegex = /^[0-9]*$/;
     if (phoneNumber && !phoneRegex.test(phoneNumber)) {
       setError('Phone number must be a valid number.');
       return;
     }
     if (phoneNumber.length > 10) {
-      setError('Phone number must be a shorter number');
+      setError('Phone number must be a shorter number.');
+      return;
+    }
+
+    // Validate date selection
+    if (!selectedDate) {
+      setError('Please select a date for your appointment.');
       return;
     }
   
@@ -31,7 +41,7 @@ const Form = ({ selectedDate }) => {
       fullName,
       phoneNumber,
       location,
-      date: selectedDate ? selectedDate.format('YYYY-MM-DD') : '',
+      date: selectedDate.format('YYYY-MM-DD'),  // format selectedDate as needed
       category: appointmentType,
     };
   
@@ -57,7 +67,7 @@ const Form = ({ selectedDate }) => {
   };
   
   return (
-    <div className="sm:w-[430px] sm:h-[500px] w-[330px] h-[480px] mb-10 bg-white rounded-[50px] shadow-3xl shadow-black flex-col justify-between">
+    <div className="lg:w-[430px] md:w-[600px] sm:w-[500px] xs:w-full w-[320px] sm:h-[500px] h-[480px] mb-10 bg-white rounded-[50px] shadow-3xl shadow-black flex-col justify-between">
       <form onSubmit={handleSubmit} className="px-8 pt-[55px] pb-8 mb-1">
         <div className="mb-2">
           <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="fullName">
@@ -85,10 +95,9 @@ const Form = ({ selectedDate }) => {
             placeholder="Enter your phone number"
             value={phoneNumber}
             onChange={(e) => setPhoneNumber(e.target.value)}
-            className="border-[2px] mb- appearance-none rounded-xl w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="border-[2px] appearance-none rounded-xl w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             required
           />
-              {error && <span className="text-red-500 text-xs m-0">{error}</span>} {/* Error message here */}
         </div>
         <div className="mb-2">
           <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="location">
@@ -126,22 +135,28 @@ const Form = ({ selectedDate }) => {
         <div className="flex items-center justify-center">
           <button
             type="submit"
-            className="bg-[#5188F2] w-[85%] hover:bg-blue-700 hover:scale-105 ease-in-out duration-300   hover:shadow-xl hover:shadow-gray-400 text-white font-extrabold py-2 px-4 rounded-xl focus:outline-none focus:shadow-outline"
+            className="bg-[#5188F2] w-[85%] hover:bg-blue-700 hover:scale-105 ease-in-out duration-300 hover:shadow-xl hover:shadow-gray-400 text-white font-extrabold py-2 px-4 rounded-xl focus:outline-none focus:shadow-outline"
           >
             Book an Appointment
           </button>
+          
         </div>
+        {error && <span className="text-red-500 text-xs m-0 text-center block mt-3">{error}</span>} {/* Centered error message */}
+
       </form>
 
-      <div className={`w-full flex transition-opacity duration-300 ease-in-out ${isOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'} left-0 justify-center bg-transparent backdrop-blur-sm h-full p-[10%] fixed top-0 z-40`} onClick={toggleMenu} >
+      <div className={`w-full flex transition-opacity duration-300 ease-in-out ${isOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'} left-0 justify-center bg-transparent backdrop-blur-sm h-full p-[10%] fixed top-0 z-40`} onClick={() => { toggleMenu(); navigate(`/`) }}>
         <div 
-        onClick={(e) => e.stopPropagation()}
-        className="w-[650px] h-[380px] py-10 bg-white rounded-[50px] mt-[200px] sm:mt-auto shadow-2xl flex-row relative justify-center">
+          onClick={(e) => e.stopPropagation()}
+          className="w-[650px] h-[380px] py-10 bg-white rounded-[50px] mt-[200px] sm:mt-auto shadow-2xl flex-row relative justify-center"
+        >
           <center>
             <img src={correct} alt="Appointment booked" className='w-[170px] h-[170px] mb-[60px]' />
             <h1 className='text-[22px] font-extrabold text-[#374885]'>Appointment Booked</h1>
           </center>
-        <button>  <IoClose onClick={toggleMenu} className='absolute top-10 right-10 text-[40px] text-[#585858]' /></button>
+          <button>
+            <IoClose onClick={() => { toggleMenu(); navigate(`/`) }} className='absolute top-10 right-10 text-[40px] text-[#585858]' />
+          </button>
         </div>
       </div>
     </div>

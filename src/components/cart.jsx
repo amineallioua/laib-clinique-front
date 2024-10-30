@@ -18,6 +18,7 @@ const Cart = () => {
     setIsOpen(!isOpen);
   };
   
+  
 
   // Calculate the total whenever the cart changes
   useEffect(() => {
@@ -47,13 +48,14 @@ const Cart = () => {
 
 
   )
+  
 
   return ( 
     
-    <div className={` shadow-xl shadow-slate-300  w-[350px] sm:w-[425px] h-[450px]  bg-[#cee7f0] rounded-[50px] fixed top-[20%] px-8 py-5 z-30 transition-all duration-500 ease-in-out transform ${isOpen ? 'right-0' : ' right-[-330px] sm:right-[-400px]'}`}>
+    <div className={` shadow-xl shadow-slate-300  w-[350px] sm:w-[425px] h-[450px] bg-[#9fddf8] rounded-[50px] fixed top-[20%] px-8 py-5 z-30 transition-all duration-500 ease-in-out transform ${isOpen ? 'right-0' : ' right-[-330px] sm:right-[-400px]'}`}>
       <button 
         onClick={toggleOpen} 
-        className="w-[70px] h-[70px] py-5 pl-3 text-[25px] rounded-full bg-[#cee7f0] absolute left-[-40px] top-[45%]">
+        className="w-[70px] h-[70px] py-5 pl-3 text-[25px] rounded-full bg-[#9fddf8] absolute left-[-40px] top-[45%]">
         <FaShoppingCart  />
       </button>
 
@@ -66,12 +68,13 @@ const Cart = () => {
     <div className="text-center font-bold text-[20px]">PRICE</div>
   </div>
 
-  <div className="overflow-scroll h-[210px] mt-5 bg-white rounded-[10px] "> {/* Adjust height as needed */}
+  <div className="overflow-y-scroll h-[210px] mt-5 bg-white rounded-[10px] "> {/* Adjust height as needed */}
     {cart.map((item) => (
       <div key={item.id} className="border-b-2 border-black w-full font-semibold text-[16px] grid grid-cols-4 text-left text-black px-2 py-3">
         <div className="col-span-2 flex items-center "> 
            <div className=" mr-1 h-7 sm:h-10 aspect-square rounded-[10px] " >
-            <img src={item.photo} className=" w-full h-full " alt="" /> 
+       
+            <img  src={`http://localhost:4000/${item.photo ? item.photo.replace(/\\/g, '/') : 'default-image.jpg'}`}  className=" w-full h-full " alt="" /> 
         </div> 
                <h1 className=" text-[12px] sm:text-[15px] " >{item.name}</h1> 
       </div>

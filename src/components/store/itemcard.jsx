@@ -9,6 +9,7 @@ const Itemcard = ({ Product }) => {
   useEffect(() => {
     AOS.init({ duration: 1000 });
   }, []);
+  const  photourl =Product?.photo ? Product.photo.replace(/\\/g, '/') : 'default-image.jpg';
   return (
     <div
     data-aos="zoom-in"
@@ -41,9 +42,9 @@ const Itemcard = ({ Product }) => {
           // Render actual content when the data is available
           <>
             <div className='h-2/3 aspect-square pt-10 relative overflow-hidden'>
-              <img src={itemimg} alt="" />
+              <img className='w-full h-full ' src={`http://localhost:4000/${photourl}`} alt="" />
             </div>
-            <h1 className="text-xl font-bold text-black">{Product.name}</h1>
+            <h1 className="text-xl font-bold mt-3 text-black">{Product.name}</h1>
             <div className=' bg-[#FFCAD4] font-border text-white text-[18px] font-extrabold absolute rotate-45 top-6 px-20 py-1 right-[-70px] text-center ' >  {Product.price.toFixed(0) } DA </div>
           </>
         )}
