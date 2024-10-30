@@ -5,6 +5,7 @@ import { PiEmptyBold } from "react-icons/pi";
 import Buy from '../components/store/form';
 import itemimg from '.././assets/pngwing2.png'
 import correct from '.././assets/correct.png';
+import wallpaper from '.././assets/pink-girly-25.jpg';
 import { IoClose } from "react-icons/io5";
 
 
@@ -53,21 +54,23 @@ const toggleMenu1 = () => {
 
 
   return (
-    <div className='max-w-[96%] shadow-xl shadow-slate-300 py-5 mt-[100px] px-5 mb-[70px] sm:justify-normal justify-center rounded-[50px] lg:flex flex-row items-center bg-[#FFCAD4] ml-[2%]'>
-      <div className='sm:w-[600px] overflow-hidden p-8 w-[350px] bg-white h-[400px] sm:h-[570px] rounded-[50px]'> 
+    <>
+    <img src={wallpaper} alt="" className=' w-full h-full pb-10 mt-[68px] fixed ' />
+    <div className='max-w-[90%] absolute top-0 shadow-xl shadow-slate-300 px-10 py-7  mt-[100px]  sm:px-5 mb-10 sm:justify-normal justify-center rounded-[50px]  lg:flex flex-row items-center bg-[#f7869b] ml-[5%]'>
+      <div className='sm:w-[600px] overflow-hidden p-8 w-[300px] bg-white h-[300px] sm:h-[500px] rounded-[50px]'> 
         <img src={itemimg}  
         alt=""
         className=' w-full h-full ' />
       </div>
       <div className='max-w-[600px] ml-5 h-[500px] relative'>
-        <h1 className='sm:text-[60px] text-[40px] font-bold text-black inline'>{product.name}</h1>
-        <h1 className='sm:text-[70px] text-[40px] ml-16 font-extrabold inline text-white'>{product.price}</h1>
-        <p className='mt-[30px] text-white mb-10'>{product.description}</p>
+        <h1 className='sm:text-[80px] text-[40px] font-bold text-black inline'>{product.name}</h1>
+        <h1 className='sm:text-[70px] text-[40px] ml-16 font-extrabold inline text-white'>{product.price} dz</h1>
+        <p className='mt-[30px]  text-[18px] text-white mb-10'> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, libero. Modi, ut? Error veritatis cumque at fugiat temporibus dolores debitis ipsam quos! Dicta totam optio nulla eveniet officia accusamus dolorem? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et odit totam culpa amet a eos nulla aliquam enim quia accusantium aperiam voluptatibus, rerum animi facilis, maxime nisi ratione dolor aspernatur?  </p>
         <div className='absolute bottom-0 flex'>
-          <button onClick={() => {addToCart(product , 1)  }} className='w-[150px] h-[40px] sm:w-[250px] sm:h-[50px] sm:ml-10 rounded-[50px] font-bold text-white text-[20px] bg-[#5C0029]'>
+          <button onClick={() => {addToCart(product , 1)  }} className='w-[150px] h-[40px] sm:w-[250px] sm:h-[50px] sm:ml-10 rounded-[50px] font-bold text-black text-[20px] hover:scale-110 hover:bg-[#ffb0b0] bg-[#f7c0c0]'>
             ADD TO CART
           </button>
-          <button onClick={  ()=>{toggleMenu()} } className='w-[150px] ml-5 sm:ml-10 h-[40px] sm:w-[250px] sm:h-[50px] rounded-[50px] font-bold text-white text-[25px] bg-[#00B2FF]'>
+          <button onClick={  ()=>{toggleMenu()} } className='w-[150px] ml-5 sm:ml-10 h-[40px] sm:w-[250px] sm:h-[50px] rounded-[50px] font-bold text-black text-[25px] hover:bg-[#75d6ff] hover:scale-110 bg-[#9fddf8]'>
             BUY NOW
           </button>
         </div>
@@ -88,7 +91,9 @@ const toggleMenu1 = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
+
 
 export default Details;

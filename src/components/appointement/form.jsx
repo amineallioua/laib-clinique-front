@@ -18,14 +18,14 @@ const Form = ({ selectedDate }) => {
     e.preventDefault();
     setError('');
     const phoneRegex = /^[0-9]*$/; // Only digits allowed
-    if (phoneNumber && !phoneRegex.test(phoneNumber)) {
+    if (phoneNumber && !phoneRegex.test(phoneNumber) ||  phoneNumber.length !== 10 ) {
       setError('Phone number must be a valid number.');
       return;
-    }if( phoneNumber.length > 10  ){
-      setError('Phone number must be a shorter number ')
+    }
+    if(selectedDate==null){
+      setError('set date please')
       return;
     }
-
     const appointmentData = {
       fullName,
       phoneNumber,
@@ -86,7 +86,7 @@ const Form = ({ selectedDate }) => {
             className="border-[2px] mb- appearance-none rounded-xl w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             required
           />
-              {error && <span className="text-red-500 text-xs m-0">{error}</span>} {/* Error message here */}
+              
         </div>
         <div className="mb-2">
           <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="location">
@@ -120,6 +120,7 @@ const Form = ({ selectedDate }) => {
             <option value="follow-up">Follow-up</option>
             <option value="initial">Initial Meeting</option>
           </select>
+          {error && <span className="text-red-500 text-xs m-0">{error}</span>}
         </div>
         <div className="flex items-center justify-center">
           <button

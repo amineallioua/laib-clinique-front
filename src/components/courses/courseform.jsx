@@ -14,6 +14,11 @@
             e.preventDefault();
             setError('');
             const phoneRegex = /^[0-9]*$/; // Only digits allowed
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (email && !emailRegex.test(email)) {
+              setError('Please enter a valid email address.');
+              return;
+            }
             if (phone && !phoneRegex.test(phone)) {
               setError('Phone number must be a valid number.');
               return;
@@ -52,7 +57,7 @@
           };
         return (  
             <div className={`w-full flex  left-0 justify-center items-center bg-transparent backdrop-blur-sm h-full p-[10%] fixed top-0 z-40 transition-opacity duration-300 ease-in-out ${isOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'}`} onClick={toggleMenu} >  
-            <div onClick={(e) => e.stopPropagation()} className=" relative sm:w-[430px] sm:h-[500px] w-[330px] h-[480px] mt-[100px] mb-10 bg-white rounded-[50px] shadow-3xl shadow-black flex-col justify-between">
+            <div onClick={(e) => e.stopPropagation()} className=" relative sm:w-[430px] sm:h-auto w-[330px] h-[480px] mt-[100px] mb-10 bg-white rounded-[50px] shadow-3xl shadow-black flex-col justify-between">
             <h1 className=" text-center mt-10 mb-0 text-[25px] font-bold text-black " > {Name} </h1>
             <form onSubmit={handleSubmit} className="px-8  pb-8 mb-1  ">
               <div className="mb-5 mt-10">
@@ -84,9 +89,9 @@
                   className="border-[2px] mb- appearance-none rounded-xl w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   required
                 />
-                    {error && <span className="text-red-500 text-xs m-0">{error}</span>} {/* Error message here */}
+                  
               </div>
-              <div className="mb-5">
+              <div >
                 <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
                   email
                 </label>
@@ -97,7 +102,7 @@
                   placeholder="Enter your email"
                   value={email}
                   onChange={(e) => setemail(e.target.value)}
-                  className="border-[2px] mb-4 appearance-none rounded-xl w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  className="border-[2px]  appearance-none rounded-xl w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   required
                 />
               </div>
@@ -105,6 +110,7 @@
             
             
               </div>
+              {error && <span className="text-red-500 text-xs m-10">{error}</span>} {/* Error message here */}
               <div className="flex items-center justify-center">
                 <button
                   type="submit"

@@ -5,6 +5,7 @@ import pngwing from '.././assets/course.jpg';
 import Cform from '../components/courses/courseform'
 import correct from '.././assets/correct.png';
 import { IoClose } from "react-icons/io5";
+import wallpaper from '.././assets/crystal.png';
 
 
 
@@ -52,25 +53,23 @@ const Details = () => {
 
 
   return (
-    <div className='max-w-[96%] shadow-xl shadow-slate-300 py-5 mt-[100px] pb-10 px-5 mb-[70px] sm:justify-normal justify-center rounded-[50px] lg:flex flex-row items-center bg-[#d4f5ff] ml-[2%]'>
-      <div className='sm:w-[600px] w-[350px] bg-white h-[400px] sm:h-[500px] rounded-[50px] overflow-hidden '>
+    <>
+    <img src={wallpaper} alt="" className=' w-full h-full pb-10 mt-[68px] fixed ' />
+    <div className='w-[96%] absolute shadow-xl shadow-slate-300 h-auto py-5 mt-[100px] pb-10 px-10 mb-[70px] sm:justify-normal justify-center rounded-[50px] lg:flex flex-row items-center bg-[#d4f5ff] ml-[2%]'>
+      <div className='sm:w-[600px] w-[] bg-white h-[400px] sm:h-[500px] rounded-[50px] overflow-hidden '>
         <img src={pngwing} alt="" className=' w-full h-full ' />
       </div>
-      <div className='max-w-[600px] ml-5 h-[500px] relative'>
+      <div className='max-w-[600px] ml-5 h-auto relative'>
         <h1 className='sm:text-[50px] text-[40px] font-bold text-black inline'>{course.title}  </h1> 
         <span className=' text-green-500 text-[30px] font-semibold ' > free </span>  
         <div className='  h-[150px] overflow-hidden mt-5  ' >   
             <p className=' text-black mb-10 text-[20px] '>{course.description}</p> </div> 
-            <div className='  overflow-hidden h-[150px] my-5 grid grid-cols-2  ' >
-               
-        
-              
-            </div>
+           
 
      
 
        
-          <button onClick={  ()=>{toggleMenu()} } className='w-[150px]  h-[40px] sm:w-[250px] sm:h-[50px] rounded-[50px] font-bold text-white text-[25px] bg-[#00B2FF]'>
+          <button onClick={  ()=>{toggleMenu()} } className='w-[150px]  mt-5  h-[40px] sm:w-[250px] sm:h-[50px] rounded-[50px] font-bold text-white text-[25px] bg-[#00B2FF]'>
             Enroll
           </button>
         </div>
@@ -90,6 +89,7 @@ const Details = () => {
       </div>
        
     </div>
+    </>
   );
 };
 
