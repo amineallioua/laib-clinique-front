@@ -1,0 +1,84 @@
+{
+    "homeSec1": {
+      "title": "Votre chemin vers un esprit équilibré et une voix claire.",
+      "description": "Renforcer les esprits et les voix pour une vie équilibrée. Nous offrons des soins personnalisés dans le bien-être mental et la parole, vous guidant vers la clarté et la confiance. Votre chemin vers la guérison holistique commence ici.",
+      "buttonText": "Prenez rendez-vous MAINTENANT"
+    },
+    "aboutUs": {
+      "title": "À Propos de Nous",
+      "description": "La Clinique Laib est l'une des plus grandes cliniques orthophoniques en Algérie, spécialement dans la région de Batna. Fondée par Mme Laib, qui s'inspire de sa mère médecin et de son père psychologue, nous sommes dédiés à fournir des soins de qualité en matière de santé mentale et d'orthophonie."
+    },
+    
+    "meetLPC": {
+          "title": "RENCONTREZ LPC. LAIB",
+          "description": "Rencontrez LPC. Laib, une experte passionnée en santé mentale et orthophonie. Notre clinique se consacre à aider les individus à surmonter les obstacles de la communication et à favoriser un bien-être mental durable. Grâce à des approches personnalisées et basées sur des preuves, nous travaillons ensemble pour libérer le potentiel de chacun, offrant ainsi un soutien inestimable sur le chemin vers une vie équilibrée et épanouissante."
+    },
+    
+    "ourServices": {
+          "title": "NOS SERVICES",
+          "description": "Dans notre clinique, nous offrons une gamme complète de services conçus pour améliorer vos capacités de communication et votre bien-être mental. Notre équipe dédiée est ici pour soutenir votre parcours unique vers la clarté et l'équilibre.",
+          "psychotherapy": "PSYCHOTHÉRAPIE",
+          "orthophony": "ORTHOPHONIE"
+    },
+
+    "sectionFive": {
+    "title": "DÉCOUVREZ NOTRE MAGASIN",
+    "description": "Bienvenue dans notre magasin ! Ici, vous pouvez trouver une variété de produits conçus pour améliorer votre bien-être mental et vos compétences en communication. Nos offres incluent des outils et des ressources personnalisés pour soutenir votre parcours vers la clarté et l'équilibre. Explorez notre collection et découvrez comment nous pouvons vous aider à atteindre vos objectifs de bien-être."
+    },
+
+    "sectionSix": {
+    "title": "ATELIERS ET COURS",
+    "subtitle": "DÉCOUVREZ UNE LARGE GAMME D'ATELIERS ET COURS POUR LES INDIVIDUS, LES FAMILLES ET LES PROFESSIONNELS",
+    "loading": "Chargement en cours"
+    },
+
+    "navbar": {
+    "home": "Accueil",
+    "appointment": "Prendre un rendez-vous",
+    "store": "Boutique",
+    "courses": "Cours",
+    "about": "À propos de nous"
+  },
+  "footer": {
+    "about_us": "À propos de nous",
+    "about_text": "La Clinique Laib est l'une des plus grandes cliniques orthophoniques en Algérie, spécialement dans la région de Batna. Fondée par Mme Laib, qui s'inspire de sa mère médecin et de son père psychologue, nous sommes dédiés à fournir des soins de qualité en matière de santé mentale et d'orthophonie.",
+    "menu": "Menu",
+    "menu_items": {
+      "home": "Accueil",
+      "about": "À propos de nous",
+      "services": "Services",
+      "blog": "Blog",
+      "contact": "Contactez-nous"
+    },
+    "quick_links": "Liens rapides",
+    "quick_links_items": {
+      "privacy_policy": "Politique de confidentialité",
+      "terms_conditions": "Termes et conditions",
+      "disclaimer": "Avertissement"
+    },
+    "contact_us": "Nous contacter",
+    "contact_info": {
+      "address": "Batna, Algérie",
+      "phone": "+213 798 653 819",
+      "email": "amineallioua123@gmail.com",
+      "website": "www.example.com"
+    },
+    "copyright": "© 2024 Tous droits réservés"
+  },
+  "courses" : {
+    "description":"Découvrez nos cours conçus pour répondre aux besoins uniques de chaque apprenant. Que vous soyez une famille cherchant des activités éducatives, des enfants souhaitant explorer de nouvelles passions, ou des spécialistes désirant approfondir leurs compétences, nous avons des options adaptées pour vous. Nos cours sont divisés en trois catégories : gratuits pour un accès ouvert, à tarif réduit pour des solutions abordables, et des options payantes pour une expérience d’apprentissage enrichie et spécialisée. Rejoignez-nous et explorez un monde de possibilités éducatives pour tous les âges et niveaux d’expertise",
+    "title":"Découvrez nos cours",
+    "nous" : "Nos Cours"
+
+  },
+  "store" :{
+    "title" :"Découvrez notre boutique",
+    "description":"Bienvenue dans notre boutique, où chaque produit est sélectionné avec soin pour répondre à vos attentes en matière de qualité et de style. Que vous soyez à la recherche des dernières tendances, d'articles essentiels ou de produits exclusifs, nous avons tout ce qu’il vous faut pour satisfaire vos besoins. Parcourez notre collection et découvrez une expérience de shopping unique, où chaque détail est pensé pour vous offrir le meilleur",
+    "swipe":"Une Large Gamme D'articles"
+  }
+      
+      
+      
+      
+  }
+  

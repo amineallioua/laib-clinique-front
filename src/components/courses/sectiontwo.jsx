@@ -1,11 +1,14 @@
 
 import CourseCard from './courseCard'
 import { useState , useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
+
 
  
 const Ssec2 = () => {
     const [courses , setcourses] = useState([]);
     const [loading, setLoading] = useState(true);
+    const { t } = useTranslation(); // Initialize translation hook
  
     const getcourses = async () => {
         try {
@@ -26,7 +29,7 @@ const Ssec2 = () => {
 
     return ( 
         <section className=" w-screen  pt-[70px] pb-5 bg-[#d4f5ff] px-12 " >
-            <h1 className="text-center mb-10 text-2xl sm:text-4xl font-extrabold  text-black" > OUR COURSES </h1>
+            <h1 className="text-center mb-10 text-2xl sm:text-4xl font-extrabold  text-black" > {t('courses.nous')} </h1>
             <center>
                <div className='grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-2  gap-5 mb-10 ' >
 
