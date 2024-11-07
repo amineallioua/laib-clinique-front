@@ -10,7 +10,7 @@ import { useCart } from '../cartcontext';
 const buy = ({isOpen , toggleMenu , product ,  toggleMenu1 }) => {
   const [clientName, setFullName] = useState('');
     const [phone, setPhoneNumber] = useState('');
-    const [address, setAddress] = useState('');
+    const [address, setAddress] = useState(''); 
     const [error, setError] = useState('');
     const {emptyCart}=useCart()
    
@@ -34,8 +34,8 @@ const buy = ({isOpen , toggleMenu , product ,  toggleMenu1 }) => {
       return;
     }
     const productsArray = Array.isArray(product)
-    ? product.map((item) => ({ productId: item._id, quantity: 1 }))
-    : [{ productId: product._id, quantity: 1 }];
+    ? product.map((item) => ({ productId: item._id, quantity: item.quantity }))
+    : [{ productId: product._id, quantity: product.quantity }];
 
     const orderData = {
       clientName,

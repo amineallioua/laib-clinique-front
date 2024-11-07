@@ -19,8 +19,8 @@ const Ssec1 = () => {
             enim ad minim veniam, quis nostrud exercitation </p>
 
         </div>
-        <div className="md:w-1/2 flex justify-center items-center md:ml-10   " > 
-        <img src={pngwing} alt=""  className=' rounded-[50px] ' />
+        <div className="md:w-1/2 flex justify-center items-center md:ml-10  md:py-[80px]  " > 
+        <img src={pngwing} alt=""  className=' rounded-[50px] h-full ' />
         </div>
          
 

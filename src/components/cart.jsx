@@ -5,7 +5,9 @@ import { FaCirclePlus } from "react-icons/fa6";
 import { useCart } from './cartcontext'; 
 import Buy from '../components/store/form';
 import { IoCheckmarkDoneCircle } from "react-icons/io5";
-import itemimg from '../assets/pngwing2.png'
+import { is } from "date-fns/locale";
+import { Hidden } from "@mui/material";
+
 
 const Cart = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,16 +15,24 @@ const Cart = () => {
   const [isOpen1, setIsOpen1] = useState(true);
   const [showMessage , setshowMessage] = useState(false)
   const { cart, calculateCartTotal, addToCart } = useCart();
+  const [newitem , setnewitem]  = useState(false)
 
   const toggleOpen = () => {
+    isOpen == false ? setnewitem(false) : 'nothing' 
     setIsOpen(!isOpen);
+    
+    console.log(newitem)
   };
   
 
   // Calculate the total whenever the cart changes
   useEffect(() => {
     setTotal(calculateCartTotal());
+    isOpen ? setnewitem(false) : setnewitem(true) 
+
+
   }, [cart]);
+
 
   const toggleMenu = () => {
     setIsOpen1(!isOpen1);
@@ -37,7 +47,7 @@ const Cart = () => {
       // Hide the message after 10 seconds
       const timer = setTimeout(() => {
         setshowMessage(false);
-      }, 5000);
+      }, 2000);
 
       // Cleanup the timer if the component unmounts or the effect reruns
       return () => clearTimeout(timer);
@@ -55,6 +65,7 @@ const Cart = () => {
         onClick={toggleOpen} 
         className="w-[70px] h-[70px] py-5 pl-3 text-[25px] rounded-full bg-[#cee7f0] absolute left-[-40px] top-[45%]">
         <FaShoppingCart  />
+        <div className= {`w-3 h-3 bg-red-600 rounded-full  absolute top-2 left-0  transition-all duration-500 ease-in-out ${ newitem ? 'opacity-100' : 'opacity-0'} `} ></div>
       </button>
 
       <h1 className="text-black font-bold text-[35px] ml-7">CART</h1>
