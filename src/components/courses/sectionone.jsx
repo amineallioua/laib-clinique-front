@@ -6,7 +6,7 @@ const Ssec1 = () => {
     const isArabic = i18n.language === 'ar';
 
     return (  
-        <div className="w-screen bg-[#d4f5ff] mt-[68px] pb-20 px-12 pt-3">
+        <div className="w-screen bg-[#d4f5ff] mt-[68px] pb-20 px-12 pt-3 overflow-hidden ">
             <div 
                 className={`bg-[#ffffff] rounded-[50px] w-[100%] shadow-2xl flex-row md:flex mt-16 h-auto px-6 py-3 md:px-6 ${isArabic ? 'flex-row-reverse' : ''}`}
             >

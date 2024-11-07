@@ -58,11 +58,8 @@ const Buy = ({ isOpen, toggleMenu, product, toggleMenu1 }) => {
     }
 
     const productsArray = Array.isArray(product)
-      ? product.map((item) => ({
-          productId: item._id,
-          quantity: quantities[item._id] ? parseInt(quantities[item._id]) : 1,
-        }))
-      : [{ productId: product._id, quantity: quantities[product._id] || 1 }];
+    ? product.map((item) => ({ productId: item._id, quantity: item.quantity }))
+    : [{ productId: product._id, quantity: product.quantity }];
 
     const orderData = {
       clientName,
@@ -104,7 +101,7 @@ const Buy = ({ isOpen, toggleMenu, product, toggleMenu1 }) => {
       <div onClick={(e) => e.stopPropagation()} className="w-[330px] h-[480px] sm:w-[430px] sm:h-[500px] bg-white rounded-[50px] shadow-3xl flex flex-col mb-10">
         <form onSubmit={handleSubmit} className="p-8 relative">
         <h2 className={`text-lg font-bold text-center mb-4`}>{t('storeForm.OrderForm')}</h2>
-        {error && <div className={`mb-4 text-red-500 text-sm ${textAlignClass}`}>{error}</div>}
+        {error && <div className={` text-red-500 text-sm ${textAlignClass}`}>{error}</div>}
 
           <div className="mb-2">
             <label className={`block text-gray-700 text-sm font-bold mb-2 ${textAlignClass}`} htmlFor="fullName">{t('storeForm.ClientName')}</label>
@@ -139,25 +136,13 @@ const Buy = ({ isOpen, toggleMenu, product, toggleMenu1 }) => {
               product.map((item) => (
                 <div key={item._id} className="flex items-center justify-between border-2 border-gray-200 rounded-xl p-2 m-2">
                   <span className="font-semibold">{t('')}{item.name}</span>
-                  <input
-                    type="number"
-                    min="1"
-                    value={quantities[item._id] || 1}
-                    onChange={(e) => handleQuantityChange(item._id, e.target.value)}
-                    className="border-2 w-16 h-8 text-center"
-                  />
+                
                 </div>
               ))
             ) : (
               <div className="flex items-center justify-between border-2 border-gray-200 rounded-xl p-2 m-2">
                 <span className="font-semibold">{t('')}{product.name}</span>
-                <input
-                  type="number"
-                  min="1"
-                  value={quantities[product._id] || 1}
-                  onChange={(e) => handleQuantityChange(product._id, e.target.value)}
-                  className="border-2 w-16 h-8 text-center"
-                />
+             
               </div>
             )}
           </div>
@@ -175,13 +160,15 @@ const Buy = ({ isOpen, toggleMenu, product, toggleMenu1 }) => {
               required
             />
           </div>
-
+            <div className=" flex justify-center w-full " >
           <button
             type="submit"
             className="bg-[#5188F2] w-[85%] hover:bg-blue-700 text-white font-extrabold py-2 px-4 rounded-xl focus:outline-none focus:shadow-outline"
           >
             {t('storeForm.Order')}
           </button>
+          </div>
+
           <button
             type="button"
             onClick={toggleMenu}

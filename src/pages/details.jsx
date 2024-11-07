@@ -78,12 +78,19 @@ const Details = () => {
           </div>
 
           <div className={`flex space-x-5 mt-5 ${i18n.language === 'ar' ? 'space-x-reverse' : ''}`}>
-            <button
-              onClick={() => addToCart(product, 1)}
-              className='w-[150px] h-[40px] sm:w-[250px] sm:h-[50px] rounded-[50px] font-bold text-black text-[16px] sm:text-[20px] hover:scale-110 hover:bg-[#ffb0b0] bg-[#f7c0c0] overflow-hidden whitespace-nowrap text-ellipsis'
-            >
-              {t('addToCart')}
-            </button>
+          <button
+  onClick={() => {
+    addToCart(product, 1);
+
+    // Emit the custom event
+    const event = new CustomEvent('itemAddedToCart');
+    window.dispatchEvent(event); // Dispatch the event globally
+  }}
+  className='w-[150px] h-[40px] sm:w-[250px] sm:h-[50px] rounded-[50px] font-bold text-black text-[16px] sm:text-[20px] hover:scale-110 hover:bg-[#ffb0b0] bg-[#f7c0c0] overflow-hidden whitespace-nowrap text-ellipsis'
+>
+  {t('addToCart')}
+</button>
+
             <button
               onClick={() => toggleMenu()}
               className='w-[150px] h-[40px] sm:w-[250px] sm:h-[50px] rounded-[50px] font-bold text-black text-[16px] sm:text-[20px] hover:bg-[#75d6ff] hover:scale-110 bg-[#9fddf8] overflow-hidden whitespace-nowrap text-ellipsis'

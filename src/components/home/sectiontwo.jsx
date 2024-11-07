@@ -16,7 +16,7 @@ function Hsec2() {
             data-aos="fade-right"
             data-aos-offset="200"
             data-aos-easing="ease-in-sine"
-            className={`flex ${isArabic ? 'flex-row-reverse' : 'md:flex-row'} items-center justify-between w-screen md:pb-[200px] px-12 mx-auto bg-[#d4f5ff] pt-20 relative lg:h-screen`}
+            className={`flex ${isArabic ? 'flex-row-reverse  ' : 'md:flex-row'} items-center overflow-hidden justify-between w-screen md:pb-[200px] px-12 mx-auto bg-[#d4f5ff] pt-20 relative lg:h-screen`}
         >
             {/* Image Section */}
             <div className="w-1/2">
@@ -28,7 +28,7 @@ function Hsec2() {
             </div>
 
             {/* Text Section */}
-            <div className={`ml-${isLTR ? '[40%]' : '[0]'} ${isArabic ? 'text-right' : ''} z-10`}>
+            <div className={`ml-${isLTR ? '[40%]' : '[0]'} ${isArabic ? 'text-right mr-[100px] md:mr-[300px] ' : ''} z-10`}>
                 <h1 className="font-bold md:font-extrabold text-[36px] mb-5">
                     {t('aboutUs.title')}
                 </h1>

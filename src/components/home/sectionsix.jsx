@@ -71,11 +71,11 @@ const Hsec6 = () => {
               slidesPerView: 2,
               spaceBetween: 20,
             },
-            768: {
+            845: {
               slidesPerView: 3,
               spaceBetween: 40,
             },
-            1024: {
+            1224: {
               slidesPerView: 4,
               spaceBetween: 50,
             },

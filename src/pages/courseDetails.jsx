@@ -79,12 +79,12 @@ const Details = () => {
 
   return (
     <div 
-      className="bg-cover bg-fixed bg-center min-h-screen flex items-center justify-center" 
+      className="bg-cover bg-fixed bg-center min-h-screen pt-[100px] flex items-center justify-center" 
       style={{ backgroundImage: `url(${wallpaper})`, direction: isArabic ? 'rtl' : 'ltr' }}
     >
-      <div className={`max-w-[96%] shadow-xl shadow-slate-300 py-5 pb-10 px-5 flex flex-col lg:flex-row items-center bg-[#d4f5ff] rounded-[50px] mx-auto ${isArabic ? 'lg:flex-row-reverse' : ''}`}>
+      <div className={`max-w-[96%] lg:h-[500px] mt-[00px] shadow-xl shadow-slate-300 py-5 pb-10 px-5 flex flex-col lg:flex-row items-center bg-[#d4f5ff] rounded-[50px] mx-auto ${isArabic ? 'lg:flex-row-reverse' : ''}`}>
         {/* Section Image */}
-        <div className={`sm:w-[600px] w-[350px] bg-white h-[400px] sm:h-[500px] rounded-[50px] overflow-hidden ${isArabic ? 'mr-0 ml-5' : ''}`}>
+        <div className={`sm:w-[600px] w-[350px] bg-white h-full  rounded-[50px] overflow-hidden ${isArabic ? 'mr-0 ml-5' : ''}`}>
           <img src={`http://localhost:4000/${photoUrl}`} alt="" className='w-full h-full object-cover' />
         </div>
 
