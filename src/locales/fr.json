@@ -36,7 +36,7 @@
     "home": "Accueil",
     "appointment": "Prendre un rendez-vous",
     "store": "Boutique",
-    "courses": "Cours",
+    "courses": "Formations",
     "about": "À propos de nous"
   },
   "footer": {
@@ -75,7 +75,143 @@
     "title" :"Découvrez notre boutique",
     "description":"Bienvenue dans notre boutique, où chaque produit est sélectionné avec soin pour répondre à vos attentes en matière de qualité et de style. Que vous soyez à la recherche des dernières tendances, d'articles essentiels ou de produits exclusifs, nous avons tout ce qu’il vous faut pour satisfaire vos besoins. Parcourez notre collection et découvrez une expérience de shopping unique, où chaque détail est pensé pour vous offrir le meilleur",
     "swipe":"Une Large Gamme D'articles"
+  },
+
+  "form": {
+  "fullName": "Nom et Prénom",
+  "fullNamePlaceholder": "Entrez votre nom et prénom",
+  "phone": "Numéro de téléphone",
+  "phonePlaceholder": "Entrez votre numéro de téléphone",
+  "location": "Adresse",
+  "locationPlaceholder": "Entrez votre adresse",
+  "diagnosis": "Type de Rendez-vous",
+  "selectOption": "Sélectionnez une option",
+  "psychologicalConsultation": "Consultation psychologique",
+  "speechTherapyConsultation": "Consultation orthophonique",
+  "followUp": "Suivi",
+  "initialMeeting": "Première réunion",
+  "bookAppointment": "Réserver un rendez-vous",
+  "phoneError": "Le numéro de téléphone doit être un chiffre valide.",
+  "phoneLengthError": "Le numéro de téléphone doit être plus court.",
+  "dateError": "Veuillez choisir une date pour votre rendez-vous.",
+  "appointmentBooked": "Rendez-vous réservé avec succès!"
+},
+
+  "calendar": {
+    "label": "Sélectionnez une date",
+    "ok": "OK",
+    "cancel": "Annuler"
+  },
+  "storeForm": {
+    "ClientName": "Nom du client",
+    "fullNamePlaceholder": "Entrez votre nom complet",
+    "PhoneNumber": "Numéro de téléphone",
+    "PhoneNumberPlaceholder": "Entrez votre numéro de téléphone",
+    "Address": "Adresse",
+    "AddressPlaceholder": "Entrez votre adresse",
+    "OrderForm": "Formulaire de commande",
+    "Order": "Commander",
+    "Product: ": "Votre produit : ",
+    "10-digit": "Le numéro de téléphone doit être un numéro valide de 10 chiffres.",
+    "Cart is empty": "Le panier est vide",
+    "FailedCreateOrder": "Échec de la création de la commande",
+    "InsufficientStock": "Stock insuffisant pour ce produit.",
+    "Available": "Disponible",
+    "Error": "Une erreur s'est produite lors de la création de votre commande. Veuillez réessayer."
+  },
+  
+    "Courseform": {
+      "fullName": "Nom et Prénom",
+      "enterFullName": "Entrez votre nom et prénom",
+      "phoneNumber": "Numéro de téléphone",
+      "enterPhoneNumber": "Entrez votre numéro de téléphone",
+      "email": "Email",
+      "enterEmail": "Entrez votre email",
+      "enroll": "S'inscrire",
+      "error": {
+        "phoneInvalid": "Le numéro de téléphone doit être un numéro valide.",
+        "phoneTooLong": "Le numéro de téléphone doit comporter moins de 10 chiffres.",
+        "titleTooShort": "Le titre doit comporter au moins 5 caractères.",
+        "requestFailed": "Échec de la création de la formation.",
+        "processingRequest": "Une erreur s'est produite lors du traitement de votre demande."
+      }
+    },
+  
+  
+  
+    "services": {
+        "title": "NOS SERVICES",
+        "description": "Dans notre clinique, nous offrons une gamme complète de services conçus pour améliorer à la fois vos capacités de communication et votre bien-être mental. Notre équipe dévouée est là pour soutenir votre parcours unique vers la clarté et l'équilibre.",
+        "psychotherapy": {
+            "title": "PSYCHOTHÉRAPIE",
+            "services": [
+                {
+                    "title": "Conseils pour les problèmes émotionnels et comportementaux",
+                    "description": "Nous sommes ici pour vous aider à mieux comprendre et gérer vos émotions et comportements, favorisant la stabilité émotionnelle."
+                },
+                {
+                    "title": "Séances de psychothérapie",
+                    "description": "Des séances complètes de psychothérapie visant à traiter les problèmes de santé mentale et à améliorer le bien-être émotionnel."
+                },
+                {
+                    "title": "Thérapie cognitive",
+                    "description": "Sessions thérapeutiques pour aider à la restructuration cognitive et à la gestion des pensées négatives."
+                }
+            ]
+        },
+        "orthophony": {
+            "title": "ORTHOPHONIE",
+            "services": [
+                {
+                    "title": "Thérapie du langage",
+                    "description": "Aide pour les troubles de la parole et du langage pour une meilleure communication."
+                },
+                {
+                    "title": "Orthophonie pour enfants",
+                    "description": "Services pour aider les enfants souffrant de troubles de la parole à améliorer leur communication."
+                },
+                {
+                    "title": "Rééducation du langage",
+                    "description": "Programmes personnalisés pour améliorer les capacités linguistiques et la fluidité."
+                }
+            ]
+        }
+    },
+
+    
+      "Courses": {
+        "title": "Titre du cours",
+        "description": "Description du cours",
+        "paid": "Payé",
+        "free": "Gratuit",
+        "reduced": "Réduit",
+        "submitRequest": "Demande d'inscription soumise"
+      },
+      "common": {
+        "register": "S'inscrire",
+        "close": "Fermer",
+        "loading": "Chargement...",
+        "courseNotFound": "Cours non trouvé"
+      },
+      
+        "addToCart": "Ajouter au panier",
+        "buyNow": "Acheter maintenant",
+        "productOrdered": "Produit commandé",
+        "loading": "Chargement...",
+        "productNotFound": "Produit non trouvé",
+
+
+      "course": {
+      "free": "Gratuit",
+      "paid": "Payant",
+      "reduced": "Réduit"
   }
+    
+    
+    
+
+
+ 
       
       
       

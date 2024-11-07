@@ -4,21 +4,26 @@ import claws from '../../assets/claws.png';
 import avicii from '../../assets/avicii.png';
 import grid from '../../assets/grid.png';
 import { useNavigate } from 'react-router-dom';
-import { useTranslation } from 'react-i18next'; // Import useTranslation
+import { useTranslation } from 'react-i18next';
 
 function Hsec1() {
   const navigate = useNavigate();
-  const { t } = useTranslation(); // Initialize translation hook
+  const { t, i18n } = useTranslation(); // Initialize translation and get language
+
+  // Check if the current language is Arabic
+  const isArabic = i18n.language === 'ar';
 
   return (
     <section
       data-aos="fade-right"
       data-aos-offset="200"
       data-aos-easing="ease-in-sine"
-      className="flex flex-col md:flex-row items-center mt-[68px] justify-between w-screen px-12 mx-auto bg-[#d4f5ff] overflow-hidden relative"
+      className={`flex flex-col ${isArabic ? 'md:flex-row-reverse' : 'md:flex-row'} items-center mt-[68px] justify-between w-screen px-12 mx-auto bg-[#d4f5ff] overflow-hidden relative`}
     >
-      <div className="mt-[150px] z-10 md:w-1/2 md:mt-0">
-        <h1 className="text-4xl font-bold relative mt-20px md:mt-0">{t('homeSec1.title')}</h1>
+      <div className={`mt-[150px] z-10 md:w-1/2 md:mt-0 ${isArabic ? 'text-right' : 'text-left'}`}>
+        <h1 className="text-4xl font-bold relative mt-20px md:mt-0">
+          {t('homeSec1.title')}
+        </h1>
 
         <p className="mb-6 relative mt-10 md:mt-10">
           {t('homeSec1.description')}

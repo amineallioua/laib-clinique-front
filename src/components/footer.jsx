@@ -3,18 +3,20 @@ import { FaFacebook, FaInstagram, FaTiktok, FaWhatsapp } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
 
 const Footer = ({ color }) => {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
+    const isRtl = i18n.language === 'ar'; // Check if the language is Arabic (or any RTL language)
 
     return (
-        <div className={`relative bottom-0 w-full ${color ? "bg-[#f7869b]" : "bg-[#4BA6C3]"} text-white py-10`}>
+        <div
+            className={`relative bottom-0 w-full ${color ? "bg-[#f7869b]" : "bg-[#4BA6C3]"} text-white py-10`}
+            dir={isRtl ? 'rtl' : 'ltr'}
+        >
             <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 px-5">
                 {/* About Us Section */}
-                <div>
+                <div className={`${isRtl ? 'text-right' : 'text-left'}`}>
                     <h2 className="text-xl font-bold mb-4">{t("footer.about_us")}</h2>
-                    <p className="text-sm mb-4">
-                        {t("footer.about_text")}
-                    </p>
-                    <div className="flex space-x-4 text-lg">
+                    <p className="text-sm mb-4">{t("footer.about_text")}</p>
+                    <div className={`flex space-x-4 ${isRtl ? 'flex-row-reverse space-x-reverse' : ''} text-lg`}>
                         <a href="https://www.facebook.com/amine.allioua/" target="_blank" rel="noopener noreferrer">
                             <FaFacebook className="hover:text-[#3b5998] transition-colors duration-300" />
                         </a>
@@ -31,7 +33,7 @@ const Footer = ({ color }) => {
                 </div>
 
                 {/* Menu Section */}
-                <div>
+                <div className={`${isRtl ? 'text-right' : 'text-left'}`}>
                     <h2 className="text-xl font-bold mb-4">{t("footer.menu")}</h2>
                     <ul className="space-y-2 text-sm">
                         <li><a href="#" className="hover:underline">{t("footer.menu_items.home")}</a></li>
@@ -43,7 +45,7 @@ const Footer = ({ color }) => {
                 </div>
 
                 {/* Quick Links Section */}
-                <div>
+                <div className={`${isRtl ? 'text-right' : 'text-left'}`}>
                     <h2 className="text-xl font-bold mb-4">{t("footer.quick_links")}</h2>
                     <ul className="space-y-2 text-sm">
                         <li><a href="#" className="hover:underline">{t("footer.quick_links_items.privacy_policy")}</a></li>
@@ -53,7 +55,7 @@ const Footer = ({ color }) => {
                 </div>
 
                 {/* Contact Us Section */}
-                <div>
+                <div className={`${isRtl ? 'text-right' : 'text-left'}`}>
                     <h2 className="text-xl font-bold mb-4">{t("footer.contact_us")}</h2>
                     <ul className="space-y-2 text-sm">
                         <li>{t("footer.contact_info.address")}</li>

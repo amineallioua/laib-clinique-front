@@ -51,12 +51,7 @@ const Navbar = () => {
                     >
                         {t('navbar.courses')}
                     </Link>
-                    <Link
-                        to="/about"
-                        className={`text-[15px] font-bold ${isActive('/about') ? 'border-b-2 border-blue-500' : ''}`}
-                    >
-                        {t('navbar.about')}
-                    </Link>
+                    
                 </div>
 
                 {/* Language Selector */}
@@ -106,13 +101,7 @@ const Navbar = () => {
                     >
                         {t('navbar.courses')}
                     </Link>
-                    <Link
-                        onClick={toggleMenu}
-                        to="/about"
-                        className={`block px-3 py-2 text-lg hover:bg-blue-600 ${isActive('/about') ? 'bg-blue-600' : ''}`}
-                    >
-                        {t('navbar.about')}
-                    </Link>
+                   
                 </div>
             </div>
         </nav>

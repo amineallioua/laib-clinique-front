@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { IoClose } from "react-icons/io5";
+import { useTranslation } from 'react-i18next';
 
 const Cform = ({ Name, toggleMenu, isOpen, toggleMenu1 }) => {
+  const { t, i18n } = useTranslation();
   const [error, setError] = useState('');
   const [name, setname] = useState('');
   const [phone, setphone] = useState('');
@@ -14,17 +16,17 @@ const Cform = ({ Name, toggleMenu, isOpen, toggleMenu1 }) => {
 
     const phoneRegex = /^[0-9]*$/; // Only digits allowed
     if (phone && !phoneRegex.test(phone)) {
-      setError('Phone number must be a valid number.');
+      setError(t('Courseform.error.phoneInvalid'));
       return;
     }
-    if (phone.length > 10) {
-      setError('Phone number must be shorter than 10 digits.');
+    if (phone.length < 10 || phone.length >10) {
+      setError(t('Courseform.error.phoneTooLong'));
       return;
     }
 
     // Title length validation
-    if (title.length < 5) { // Minimum length can be adjusted
-      setError('Title must be at least 5 characters long.');
+    if (title.length < 5) {
+      setError(t('Courseform.error.titleTooShort'));
       return;
     }
 
@@ -47,7 +49,7 @@ const Cform = ({ Name, toggleMenu, isOpen, toggleMenu1 }) => {
 
       if (!response.ok) {
         const data = await response.json();
-        setError(data.message || 'Failed to create training');
+        setError(data.message || t('Courseform.error.requestFailed'));
         return;
       }
 
@@ -56,9 +58,13 @@ const Cform = ({ Name, toggleMenu, isOpen, toggleMenu1 }) => {
       toggleMenu();
     } catch (error) {
       console.error('Error:', error);
-      setError('An error occurred while processing your request.');
+      setError(t('Courseform.error.processingRequest'));
     }
   };
+
+  // Determine alignment based on current language
+  const textAlignment = i18n.language === 'ar' ? 'text-right' : 'text-left';
+  const formAlignment = i18n.language === 'ar' ? 'text-right' : 'text-left';
 
   return (
     <div
@@ -71,53 +77,56 @@ const Cform = ({ Name, toggleMenu, isOpen, toggleMenu1 }) => {
       >
         {/* Title Container */}
         <div className="text-center mb-4">
-          <h1 className="text-[25px] font-bold text-black overflow-hidden text-ellipsis whitespace-nowrap">
+          <h1 className={`text-[25px] font-bold text-black overflow-hidden text-ellipsis whitespace-nowrap text-center`}>
             {title}
           </h1>
         </div>
         <form onSubmit={handleSubmit} className="mb-1">
           <div className="mb-5 mt-10">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">
-              Full Name
+            <label className={`block text-gray-700 text-sm font-bold mb-2 ${formAlignment}`} htmlFor="name">
+              {t('Courseform.fullName')}
             </label>
             <input
               type="text"
               id="name"
               name="name"
-              placeholder="Enter your full name"
+              placeholder={t('Courseform.enterFullName')}
               value={name}
               onChange={(e) => setname(e.target.value)}
               className="appearance-none border-[2px] mb-2 rounded-xl w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              style={{ textAlign: i18n.language === 'ar' ? 'right' : 'left' }} // Align placeholder text
               required
             />
           </div>
           <div className="mb-5">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="phone">
-              Phone Number
+            <label className={`block text-gray-700 text-sm font-bold mb-2 ${formAlignment}`} htmlFor="phone">
+              {t('Courseform.phoneNumber')}
             </label>
             <input
               type="tel"
               id="phone"
               name="phone"
-              placeholder="Enter your phone number"
+              placeholder={t('Courseform.enterPhoneNumber')}
               value={phone}
               onChange={(e) => setphone(e.target.value)}
               className="border-[2px] mb-2 appearance-none rounded-xl w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              style={{ textAlign: i18n.language === 'ar' ? 'right' : 'left' }} // Align placeholder text
               required
             />
           </div>
           <div className="mb-5">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
-              Email
+            <label className={`block text-gray-700 text-sm font-bold mb-2 ${formAlignment}`} htmlFor="email">
+              {t('Courseform.email')}
             </label>
             <input
-              type="email"  // Change type to "email" for better validation
+              type="email"
               id="email"
               name="email"
-              placeholder="Enter your email"
+              placeholder={t('Courseform.enterEmail')}
               value={email}
               onChange={(e) => setemail(e.target.value)}
               className="border-[2px] mb-4 appearance-none rounded-xl w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              style={{ textAlign: i18n.language === 'ar' ? 'right' : 'left' }} // Align placeholder text
               required
             />
           </div>
@@ -126,7 +135,7 @@ const Cform = ({ Name, toggleMenu, isOpen, toggleMenu1 }) => {
               type="submit"
               className="bg-[#5188F2] w-full hover:bg-blue-700 text-white font-extrabold py-2 px-4 rounded-xl focus:outline-none focus:shadow-outline"
             >
-              Enroll
+              {t('Courseform.enroll')}
             </button>
           </div>
           {error && <div className="text-red-500 text-xs text-center mt-3">{error}</div>}
