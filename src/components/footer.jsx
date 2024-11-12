@@ -16,17 +16,17 @@ const Footer = ({ color }) => {
                 <div className={`${isRtl ? 'text-right' : 'text-left'}`}>
                     <h2 className="text-xl font-bold mb-4">{t("footer.about_us")}</h2>
                     <p className="text-sm mb-4">{t("footer.about_text")}</p>
-                    <div className={`flex space-x-4 ${isRtl ? 'flex-row-reverse space-x-reverse' : ''} text-lg`}>
-                        <a href="https://www.facebook.com/amine.allioua/" target="_blank" rel="noopener noreferrer">
+                    <div className={`flex gap-4 ${isRtl ? 'flex-row-reverse justify-end ' : ''} text-lg`}>
+                        <a href="/" target="_blank" rel="noopener noreferrer">
                             <FaFacebook className="hover:text-[#3b5998] transition-colors duration-300" />
                         </a>
-                        <a href="https://www.instagram.com/darine_lb/?locale=fr&hl=en" target="_blank" rel="noopener noreferrer">
+                        <a href="https://www.instagram.com/darine_lb?igsh=MWZndXc3aWFxOGZoZQ==" target="_blank" rel="noopener noreferrer">
                             <FaInstagram className="hover:text-[#E1306C] transition-colors duration-300" />
                         </a>
-                        <a href="https://www.tiktok.com/@darine_lb" target="_blank" rel="noopener noreferrer">
+                        <a href="https://www.tiktok.com/@darine_lb?_t=8rHzFab91IG&_r=1" target="_blank" rel="noopener noreferrer">
                             <FaTiktok className="hover:text-[#000000] transition-colors duration-300" />
                         </a>
-                        <a href="https://wa.me/0798653819" target="_blank" rel="noopener noreferrer">
+                        <a href="https://wa.me/0675442760" target="_blank" rel="noopener noreferrer">
                             <FaWhatsapp className="hover:text-[#25D366] transition-colors duration-300" />
                         </a>
                     </div>
@@ -55,15 +55,16 @@ const Footer = ({ color }) => {
                 </div>
 
                 {/* Contact Us Section */}
+                {/* Contact Us Section */}
                 <div className={`${isRtl ? 'text-right' : 'text-left'}`}>
                     <h2 className="text-xl font-bold mb-4">{t("footer.contact_us")}</h2>
                     <ul className="space-y-2 text-sm">
                         <li>{t("footer.contact_info.address")}</li>
-                        <li>{t("footer.contact_info.phone")}</li>
+                        <li className={`${isRtl ? 'text-right' : ''} ltr`}>0675442760</li> {/* Add class */}
                         <li>{t("footer.contact_info.email")}</li>
-                        <li><a href="#" className="hover:underline">{t("footer.contact_info.website")}</a></li>
                     </ul>
                 </div>
+
             </div>
 
             {/* Copyright */}

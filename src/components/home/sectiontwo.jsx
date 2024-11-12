@@ -28,7 +28,7 @@ function Hsec2() {
             </div>
 
             {/* Text Section */}
-            <div className={`ml-${isLTR ? '[40%]' : '[0]'} ${isArabic ? 'text-right mr-[100px] md:mr-[300px] ' : ''} z-10`}>
+            <div className={` w-full  ${isArabic ? 'text-right mr-[100px] md:mr-[370px] ' : 'ml-[100px] lg:ml-[350px]'} z-10`}>
                 <h1 className="font-bold md:font-extrabold text-[36px] mb-5">
                     {t('aboutUs.title')}
                 </h1>

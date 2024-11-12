@@ -22,12 +22,12 @@
     },
 
     "sectionFive": {
-    "title": "DÉCOUVREZ NOTRE MAGASIN",
+    "title": "DÉCOUVREZ NOTRE BOUTIQUE",
     "description": "Bienvenue dans notre magasin ! Ici, vous pouvez trouver une variété de produits conçus pour améliorer votre bien-être mental et vos compétences en communication. Nos offres incluent des outils et des ressources personnalisés pour soutenir votre parcours vers la clarté et l'équilibre. Explorez notre collection et découvrez comment nous pouvons vous aider à atteindre vos objectifs de bien-être."
     },
 
     "sectionSix": {
-    "title": "ATELIERS ET COURS",
+    "title": "ATELIERS ET FORMATIONS",
     "subtitle": "DÉCOUVREZ UNE LARGE GAMME D'ATELIERS ET COURS POUR LES INDIVIDUS, LES FAMILLES ET LES PROFESSIONNELS",
     "loading": "Chargement en cours"
     },
@@ -59,8 +59,8 @@
     "contact_us": "Nous contacter",
     "contact_info": {
       "address": "Batna, Algérie",
-      "phone": "+213 798 653 819",
-      "email": "amineallioua123@gmail.com",
+      "phone": "+213 675 442 760",
+      "email": "laibclinque@gmail.com",
       "website": "www.example.com"
     },
     "copyright": "© 2024 Tous droits réservés"
@@ -68,7 +68,7 @@
   "courses" : {
     "description":"Découvrez nos cours conçus pour répondre aux besoins uniques de chaque apprenant. Que vous soyez une famille cherchant des activités éducatives, des enfants souhaitant explorer de nouvelles passions, ou des spécialistes désirant approfondir leurs compétences, nous avons des options adaptées pour vous. Nos cours sont divisés en trois catégories : gratuits pour un accès ouvert, à tarif réduit pour des solutions abordables, et des options payantes pour une expérience d’apprentissage enrichie et spécialisée. Rejoignez-nous et explorez un monde de possibilités éducatives pour tous les âges et niveaux d’expertise",
     "title":"Découvrez nos cours",
-    "nous" : "Nos Cours"
+    "nous" : "Nos Formations"
 
   },
   "store" :{
@@ -180,8 +180,8 @@
 
     
       "Courses": {
-        "title": "Titre du cours",
-        "description": "Description du cours",
+        "title": "Titre du Formations",
+        "description": "Description du Formation",
         "paid": "Payé",
         "free": "Gratuit",
         "reduced": "Réduit",
@@ -205,6 +205,19 @@
       "free": "Gratuit",
       "paid": "Payant",
       "reduced": "Réduit"
+  },
+  "cart":{
+    "cart": "Panier",
+    "items": "Articles",
+    "quantity": "Quantité",
+    "price": "Prix",
+    "total": "Total",
+    "checkout": "Confirmer",
+    "orderDone": "Commande terminée!",
+    "addToCart": "Ajouter au panier",
+    "removeFromCart": "Retirer du panier",
+    "continueShopping": "Continuer vos achats",
+    "emptyCart": "Votre panier est vide"
   }
     
     

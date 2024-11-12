@@ -6,9 +6,7 @@ module.exports = {
   ],
   theme: {
     extend: {
-      fontFamily: {
-        montserrat: ['Montserrat', 'sans-serif'],
-      },
+      
       colors: {
         scrollbar: '#00B2FF',
       },

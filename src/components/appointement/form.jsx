@@ -2,7 +2,8 @@ import correct from '../../assets/correct.png';
 import { IoClose } from "react-icons/io5";
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useTranslation } from 'react-i18next'; // Import useTranslation
+import { useTranslation } from 'react-i18next';
+import { ClipLoader } from 'react-spinners';
 
 const Form = ({ selectedDate }) => {
   const { t, i18n } = useTranslation(); // Initialize translation hook
@@ -14,6 +15,7 @@ const Form = ({ selectedDate }) => {
   const [location, setLocation] = useState('');
   const [appointmentType, setAppointmentType] = useState('');
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false); // Add loading state
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -26,31 +28,32 @@ const Form = ({ selectedDate }) => {
     // Validate phone number
     const phoneRegex = /^[0-9]*$/;
     if (phoneNumber && !phoneRegex.test(phoneNumber)) {
-      setError(t('form.phoneError')); // Use translation for error message
+      setError(t('form.phoneError'));
       return;
     }
     if (phoneNumber.length > 10) {
-      setError(t('form.phoneLengthError')); // Use translation for error message
+      setError(t('form.phoneLengthError'));
       return;
     }
 
     // Validate date selection
     if (!selectedDate) {
-      setError(t('form.dateError')); // Use translation for error message
+      setError(t('form.dateError'));
       return;
     }
-  
+
     const appointmentData = {
       fullName,
       phoneNumber,
       location,
-      date: selectedDate.format('YYYY-MM-DD'), // Format selectedDate as needed
+      date: selectedDate.format('YYYY-MM-DD'),
       category: appointmentType,
     };
-  
-    console.log('Appointment Data:', appointmentData); // Log the data before sending
-  
+
+    console.log('Appointment Data:', appointmentData);
+
     try {
+      setLoading(true); // Start loading spinner
       const response = await fetch('http://localhost:4000/api/appointments/create_appointment', {
         method: 'POST',
         headers: {
@@ -58,14 +61,16 @@ const Form = ({ selectedDate }) => {
         },
         body: JSON.stringify(appointmentData),
       });
-  
+
       if (!response.ok) {
         throw new Error('Failed to create appointment');
       }
-  
+
       toggleMenu();
     } catch (error) {
       console.error('Error:', error);
+    } finally {
+      setLoading(false); // Stop loading spinner
     }
   };
   
@@ -100,9 +105,9 @@ const Form = ({ selectedDate }) => {
             onChange={(e) => setPhoneNumber(e.target.value)}
             className="border-[2px] appearance-none rounded-xl w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             required
-            style={{ textAlign: i18n.language === 'ar' ? 'right' : 'left' }}  // Conditional styling for text alignment
+            style={{ textAlign: i18n.language === 'ar' ? 'right' : 'left' }} 
           />
-</div>
+        </div>
 
         <div className="mb-2">
           <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="location">
@@ -139,15 +144,25 @@ const Form = ({ selectedDate }) => {
           </select>
         </div>
 
-        <div className="flex items-center justify-center">
-          <button
-            type="submit"
-            className="bg-[#5188F2] w-[85%] hover:bg-blue-700 hover:scale-105 ease-in-out duration-300 hover:shadow-xl hover:shadow-gray-400 text-white font-extrabold py-2 px-4 rounded-xl focus:outline-none focus:shadow-outline"
-          >
-            {t('form.bookAppointment')}
-          </button>
+        <div className="flex items-center justify-center relative">
+      <button
+          type="submit"
+          className="bg-[#4BA6C3] w-[85%] min-h-[48px] flex items-center justify-center relative hover:bg-blue-700 hover:scale-105 ease-in-out duration-300 hover:shadow-xl hover:shadow-gray-400 text-white font-extrabold py-2 px-4 rounded-xl focus:outline-none focus:shadow-outline"
+          disabled={loading} // Disable button when loading
+        >
+        {loading ? (
+        <ClipLoader
+          color="#ffffff"
+          size={24}
+          loading={loading}
+        />
+      ) : (
+          t('form.bookAppointment')
+        )}
+      </button>
+
         </div>
-        {error && <span className="text-red-500 text-xs m-0 text-center block mt-3">{error}</span>} {/* Centered error message */}
+        {error && <span className="text-red-500 text-xs m-0 text-center block mt-3">{error}</span>}
       </form>
 
       <div className={`w-full flex transition-opacity duration-300 ease-in-out ${isOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'} left-0 justify-center bg-transparent backdrop-blur-sm h-full p-[10%] fixed top-0 z-40`} onClick={() => { toggleMenu(); navigate(`/`) }}>

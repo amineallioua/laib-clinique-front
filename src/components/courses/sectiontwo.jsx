@@ -44,13 +44,13 @@ const Ssec2 = () => {
                     ) : courses.length > 0 ? (
                         // Render actual data when loading is done
                         courses.map((item) => (
-                            <div key={item.id} className="w-full">
+                            <div key={item.id} className="w-full flex justify-center ">
                                 <CourseCard Course={item} />
                             </div>
                         ))
                     ) : (
                         // Fallback UI when no courses are available
-                        <div className="w-full text-center text-lg text-gray-600">
+                        <div className="w-full text-center  text-lg text-gray-600">
                             {t('courses.no_courses')}
                         </div>
                     )}

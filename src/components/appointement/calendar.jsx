@@ -30,7 +30,7 @@ export default function Calendar({ selectedDate, onDateChange }) {
           width: { xs: 'auto', sm: 'auto', md: '600px', lg: '750px' },
           height: { xs: 'auto', lg: '500px' },
           '& .MuiPickersCalendarHeader-root': {
-            backgroundColor: '#5188F2',
+            backgroundColor: '#4BA6C3',
             color: 'white',
             fontFamily: 'Montserrat, sans-serif',
             fontWeight: '800',
@@ -42,10 +42,10 @@ export default function Calendar({ selectedDate, onDateChange }) {
             fontWeight: '800',
             fontSize: { xs: '12px', sm: '15px' },
             '&:hover': {
-              backgroundColor: '#6366f1',
+              backgroundColor: '#4BA6C3',
             },
             '&.Mui-selected': {
-              backgroundColor: '#5188F2',
+              backgroundColor: '#4BA6C3',
             },
           },
         }}

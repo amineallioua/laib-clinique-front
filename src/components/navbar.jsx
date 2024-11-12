@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { RiMenu3Line } from "react-icons/ri";
 import { useTranslation } from 'react-i18next';
+import Logo1 from '../assets/Logo-reversed-ICON.png';
+import Logo2 from '../assets/darine-logo_pink-Logo.png';
+import Logo3 from '../assets/darine-logo_green-Logo.png'
 
 const Navbar = () => {
     const { t, i18n } = useTranslation(); // Initialize i18n for language switching
@@ -19,23 +22,32 @@ const Navbar = () => {
 
     const isActive = (path) => location.pathname === path;
 
+    const getLogo = () => {
+        if (location.pathname === "/store") return Logo2;
+        if (location.pathname === "/courses" || location.pathname === "/appointment") return Logo3;
+        return Logo1; // Default logo for other paths
+    };
+
     return (
         <nav className="bg-white text-black shadow-md fixed z-40 top-0 left-0 w-screen">
-            <div className="container mx-auto px-4 py-5 flex items-center justify-between">
+            <div className="container mx-auto px-3 py-5 flex items-center justify-between">
                 {/* Logo */}
-                <div className="text-xl font-bold text-black">Logo</div>
+                <div className="flex items-center max-w-16 max-h-16">
+                    <img src={Logo1} alt="Logo" className="" />
+                </div>
+
 
                 {/* Desktop Menu */}
                 <div className="hidden md:flex space-x-6 text-black">
                     <Link
                         to="/"
-                        className={`text-[15px] font-bold ${isActive('/') ? 'border-b-2 border-blue-500' : ''}`}
+                        className={`text-[15px] font-bold ${isActive('/') ? 'border-b-2 border-[#4BA6C3]' : ''}`}
                     >
                         {t('navbar.home')}
                     </Link>
                     <Link
                         to="/appointment"
-                        className={`text-[15px] font-bold ${isActive('/appointment') ? 'border-b-2 border-blue-500' : ''}`}
+                        className={`text-[15px] font-bold ${isActive('/appointment') ? 'border-b-2 border-[#4BA6C3]' : ''}`}
                     >
                         {t('navbar.appointment')}
                     </Link>
@@ -47,7 +59,7 @@ const Navbar = () => {
                     </Link>
                     <Link
                         to="/courses"
-                        className={`text-[15px] font-bold ${isActive('/courses') ? 'border-b-2 border-blue-500' : ''}`}
+                        className={`text-[15px] font-bold ${isActive('/courses') ? 'border-b-2 border-[#4BA6C3]' : ''}`}
                     >
                         {t('navbar.courses')}
                     </Link>

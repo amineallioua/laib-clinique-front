@@ -5,6 +5,8 @@ import { FaCirclePlus } from "react-icons/fa6";
 import { useCart } from './cartcontext'; 
 import Buy from '../components/store/form';
 import { IoCheckmarkDoneCircle } from "react-icons/io5";
+import { useTranslation } from "react-i18next"; // Import useTranslation
+
 
 
 
@@ -14,7 +16,9 @@ const Cart = () => {
   const [isOpen1, setIsOpen1] = useState(true);
   const [showMessage , setshowMessage] = useState(false)
   const { cart, calculateCartTotal, addToCart } = useCart();
-  const [newitem , setnewitem]  = useState(false)
+  const [newitem , setnewitem]  = useState(false);
+  const { t, i18n } = useTranslation(); // Initialize translation hook
+
 
   const toggleOpen = () => {
     // isOpen ? setnewitem(false) : 'nothing' 
@@ -83,13 +87,13 @@ const Cart = () => {
         <div className= {`w-3 h-3 bg-red-600 rounded-full   absolute top-2 left-0  transition-all duration-500 ease-in-out ${ newitem ? 'opacity-100' : 'opacity-0'} `} ></div>
       </button>
 
-      <h1 className="text-black font-bold text-[35px] ml-7">CART</h1>
+      <h1 className="text-black font-bold text-[35px] ml-7">{t('cart.cart')}</h1>
 
       <div className="w-full h-[200px]">
   <div className="w-full grid grid-cols-4 text-left text-black">
-    <div className=" text-center col-span-2 font-bold text-[20px]">ITEMS</div>
-    <div className="text-center font-bold text-[20px]">QNT</div>
-    <div className="text-center font-bold text-[20px]">PRICE</div>
+    <div className=" text-center col-span-2 font-bold text-[20px]">{t('cart.items')}</div>
+    <div className="text-center font-bold text-[20px]">{t('cart.quantity')}</div>
+    <div className="text-center font-bold text-[20px]">{t('cart.price')}</div>
   </div>
 
   <div className="overflow-scroll h-[210px] mt-5 bg-white rounded-[10px] "> {/* Adjust height as needed */}
@@ -124,9 +128,9 @@ const Cart = () => {
 </div>
 
       
-      <h1 className="text-black font-bold text-[25px] mt-16">TOTAL: ${total.toFixed(0)}</h1>
-      {showMessage &&<p className=" text-green-500 font-bold inline " >    order done! <IoCheckmarkDoneCircle/> </p>}
-      <button onClick={toggleMenu} className="w-[120px] p-2 rounded-[10px]  bg-black text-[20px] absolute right-10 bottom-8 text-white font-bold  " > checkout </button>
+      <h1 className="text-black font-bold text-[25px] mt-16">{t('cart.total')}: DZ{total.toFixed(0)}</h1>
+      {showMessage &&<p className=" text-green-500 font-bold inline " >    {t('cart.orderDone')}! <IoCheckmarkDoneCircle/> </p>}
+      <button onClick={toggleMenu} className="w-[120px] p-2 rounded-[10px]  bg-black text-[20px] absolute right-10 bottom-8 text-white font-bold  " > {t('cart.checkout')} </button>
 
       <Buy isOpen={isOpen1} toggleMenu={toggleMenu} product={cart} toggleMenu1={changetext} />
       

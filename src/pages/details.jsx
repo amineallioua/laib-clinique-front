@@ -28,10 +28,10 @@ const Details = () => {
         const response = await fetch(`http://localhost:4000/api/products/${id}`); // Fetch product by ID
         const result = await response.json();
         setProduct(result);
-        setLoading(false); // Set loading to false after data is fetched
       } catch (error) {
         console.error('Error fetching product details:', error);
-        setLoading(false); // Set loading to false if there is an error
+      }finally{
+        setLoading(false)
       }
     };
 
@@ -39,7 +39,7 @@ const Details = () => {
   }, [id]);
 
   if (loading) {
-    return <p>{t('loading')}</p>; // Show loading indicator while fetching
+    return <h2>{t('loading')}</h2>// Show loading indicator while fetching
   }
 
   if (!product) {
@@ -64,8 +64,8 @@ const Details = () => {
         className={`max-w-[90%] absolute top-0 shadow-xl shadow-slate-300 px-10 py-7 mt-[100px] sm:px-5 mb-10 sm:justify-normal justify-center rounded-[50px] lg:flex flex-row items-center bg-[#f7869b] ml-[5%] ${i18n.language === 'ar' ? 'lg:flex-row-reverse' : ''}`}
         style={{ direction: i18n.language === 'ar' ? 'rtl' : 'ltr' }}
       >
-        <div className='sm:w-[600px] overflow-hidden p-8 w-[300px] bg-white h-[300px] sm:h-[500px] rounded-[50px]'>
-          <img src={`http://localhost:4000/${photourl}`} alt="" className='w-full h-full' />
+        <div className='sm:w-[600px] overflow-hidden p-2 md:p-8 w-[300px] bg-white h-[300px] sm:h-[500px] rounded-[50px]'>
+          <img src={`http://localhost:4000/${photourl}`} alt="" className='w-full h-full  rounded-[50px] ' />
         </div>
         <div className='max-w-[600px] ml-5 h-auto relative flex flex-col justify-between'>
           <div>

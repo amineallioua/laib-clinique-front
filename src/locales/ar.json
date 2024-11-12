@@ -60,8 +60,8 @@
         "contact_us": "اتصل بنا",
         "contact_info": {
           "address": "باتنة، الجزائر",
-          "phone": "+213 798 653 819",
-          "email": "amineallioua123@gmail.com",
+          "phone": "+213 675 442 760",
+          "email": "laibclinque@gmail.com",
           "website": "www.example.com"
         },
         "copyright": "© 2024 جميع الحقوق محفوظة"
@@ -206,6 +206,19 @@
           "free": "مجاني",
           "paid": "مدفوع",
           "reduced": "مخفض"
+        },
+        "cart":{
+          "cart": "عربة التسوق",
+          "items": "العناصر",
+          "quantity": "الكمية",
+          "price": "السعر",
+          "total": "المجموع",
+          "checkout": "تأكيد",
+          "orderDone": "تمت العملية!",
+          "addToCart": "أضف إلى السلة",
+          "removeFromCart": "إزالة من السلة",
+          "continueShopping": "تابع التسوق",
+          "emptyCart": "عربة التسوق فارغة"
         }
       
       

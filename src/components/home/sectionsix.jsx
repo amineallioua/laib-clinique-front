@@ -32,14 +32,18 @@ const Hsec6 = () => {
   }, []);
 
   const handleNext = () => {
-    if (swiperRef.current && swiperRef.current.swiper) {
+    if (swiperRef.current && swiperRef.current.swiper && !isArabic ) {
       swiperRef.current.swiper.slideNext();
+    }else{
+      swiperRef.current.swiper.slidePrev();
     }
   };
 
   const handlePrev = () => {
-    if (swiperRef.current && swiperRef.current.swiper) {
+    if (swiperRef.current && swiperRef.current.swiper && !isArabic) {
       swiperRef.current.swiper.slidePrev();
+    }else{
+      swiperRef.current.swiper.slideNext();
     }
   };
 
@@ -61,7 +65,6 @@ const Hsec6 = () => {
         <Swiper
           ref={swiperRef}
           loop={true}
-          dir={isArabic ? 'rtl' : 'ltr'} // Adjust direction based on language
           breakpoints={{
             0: {
               slidesPerView: 1,
@@ -98,7 +101,7 @@ const Hsec6 = () => {
         </Swiper>
       </center>
 
-      <div className={`flex justify-center mt-8 space-x-4 ${isArabic ? 'flex-row-reverse' : ''}`}>
+      <div className={`flex justify-center mt-8 gap-4 ${isArabic ? ' gap-4 flex-row-reverse' : ''}`}>
         <button
           onClick={handlePrev}
           className="w-12 h-12 px-4 py-2 bg-[#4BA6C3] text-white font-bold rounded-lg"

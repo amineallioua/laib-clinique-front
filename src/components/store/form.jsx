@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { IoClose } from "react-icons/io5";
 import { useCart } from '../cartcontext';
 import { useTranslation } from 'react-i18next';
+import { ClipLoader } from 'react-spinners';
+
 
 const Buy = ({ isOpen, toggleMenu, product, toggleMenu1 }) => {
   const { t, i18n } = useTranslation();
@@ -12,6 +14,8 @@ const Buy = ({ isOpen, toggleMenu, product, toggleMenu1 }) => {
   const [quantities, setQuantities] = useState({});
   const [stockQuantities, setStockQuantities] = useState({});
   const { emptyCart } = useCart();
+  const [loading, setLoading] = useState(false); // Add loading state
+
 
   // Assume stock information is available within the product prop
   useEffect(() => {
@@ -59,7 +63,7 @@ const Buy = ({ isOpen, toggleMenu, product, toggleMenu1 }) => {
 
     const productsArray = Array.isArray(product)
     ? product.map((item) => ({ productId: item._id, quantity: item.quantity }))
-    : [{ productId: product._id, quantity: product.quantity }];
+    : [{ productId: product._id, quantity: 1   }];
 
     const orderData = {
       clientName,
@@ -69,6 +73,7 @@ const Buy = ({ isOpen, toggleMenu, product, toggleMenu1 }) => {
     };
 
     try {
+      setLoading(true); // Start loading spinner
       const response = await fetch('http://localhost:4000/api/order/', {
         method: 'POST',
         headers: {
@@ -88,6 +93,8 @@ const Buy = ({ isOpen, toggleMenu, product, toggleMenu1 }) => {
     } catch (error) {
       console.error('Error creating order:', error.message);
       setError(t('Error.'));
+    }finally {
+      setLoading(false); // Stop loading spinner
     }
   };
 
@@ -101,7 +108,7 @@ const Buy = ({ isOpen, toggleMenu, product, toggleMenu1 }) => {
       <div onClick={(e) => e.stopPropagation()} className="w-[330px] h-[480px] sm:w-[430px] sm:h-[500px] bg-white rounded-[50px] shadow-3xl flex flex-col mb-10">
         <form onSubmit={handleSubmit} className="p-8 relative">
         <h2 className={`text-lg font-bold text-center mb-4`}>{t('storeForm.OrderForm')}</h2>
-        {error && <div className={` text-red-500 text-sm ${textAlignClass}`}>{error}</div>}
+        {error && <div className={`  text-red-500 text-sm ${textAlignClass}`}>{error}</div>}
 
           <div className="mb-2">
             <label className={`block text-gray-700 text-sm font-bold mb-2 ${textAlignClass}`} htmlFor="fullName">{t('storeForm.ClientName')}</label>
@@ -160,14 +167,25 @@ const Buy = ({ isOpen, toggleMenu, product, toggleMenu1 }) => {
               required
             />
           </div>
-            <div className=" flex justify-center w-full " >
-          <button
-            type="submit"
-            className="bg-[#5188F2] w-[85%] hover:bg-blue-700 text-white font-extrabold py-2 px-4 rounded-xl focus:outline-none focus:shadow-outline"
-          >
-            {t('storeForm.Order')}
-          </button>
-          </div>
+          <div className="flex justify-center w-full">
+      <button
+        type="submit"
+        className="bg-[#4BA6C3] w-[85%] min-h-[48px] flex items-center justify-center relative hover:bg-blue-700 text-white font-extrabold py-2 px-4 rounded-xl focus:outline-none focus:shadow-outline"
+        onClick={handleSubmit}
+        disabled={loading} // Disable button when loading
+      >
+        {loading ? (
+          <ClipLoader
+            color="#ffffff"
+            size={24} // You can adjust the size as needed
+            loading={loading}
+          />
+        ) : (
+          t('storeForm.Order')
+        )}
+      </button>
+    </div>
+
 
           <button
             type="button"

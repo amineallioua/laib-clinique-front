@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { IoClose } from "react-icons/io5";
 import { useTranslation } from 'react-i18next';
+import { ClipLoader } from 'react-spinners';
+
 
 const Cform = ({ Name, toggleMenu, isOpen, toggleMenu1 }) => {
   const { t, i18n } = useTranslation();
@@ -9,6 +11,8 @@ const Cform = ({ Name, toggleMenu, isOpen, toggleMenu1 }) => {
   const [phone, setphone] = useState('');
   const [email, setemail] = useState('');
   const [title, settitle] = useState(Name);
+  const [loading, setLoading] = useState(false); // Add loading state
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -39,6 +43,7 @@ const Cform = ({ Name, toggleMenu, isOpen, toggleMenu1 }) => {
     console.log(trainingrequest);
 
     try {
+      setLoading(true); // Start loading spinner
       const response = await fetch('http://localhost:4000/api/trainingrequest/create_trainingRequest', {
         method: 'POST',
         headers: {
@@ -59,6 +64,8 @@ const Cform = ({ Name, toggleMenu, isOpen, toggleMenu1 }) => {
     } catch (error) {
       console.error('Error:', error);
       setError(t('Courseform.error.processingRequest'));
+    } finally {
+      setLoading(false); // Stop loading spinner
     }
   };
 
@@ -130,14 +137,23 @@ const Cform = ({ Name, toggleMenu, isOpen, toggleMenu1 }) => {
               required
             />
           </div>
-          <div className="flex items-center justify-center mt-4">
-            <button
-              type="submit"
-              className="bg-[#5188F2] w-full hover:bg-blue-700 text-white font-extrabold py-2 px-4 rounded-xl focus:outline-none focus:shadow-outline"
-            >
-              {t('Courseform.enroll')}
-            </button>
-          </div>
+          <div className="flex items-center justify-center">
+          <button
+            type="submit"
+            className="bg-[#5188F2] w-[85%] min-h-[48px] flex items-center justify-center relative hover:bg-blue-700 hover:scale-105 ease-in-out duration-300 hover:shadow-xl hover:shadow-gray-400 text-white font-extrabold py-2 px-4 rounded-xl focus:outline-none focus:shadow-outline"
+            disabled={loading} // Disable button when loading
+          >
+            {loading ? (
+              <ClipLoader
+                color="#ffffff"
+                size={24}
+                loading={loading}
+              />
+            ) : (
+              t('Courseform.enroll')
+            )}
+          </button>
+        </div>
           {error && <div className="text-red-500 text-xs text-center mt-3">{error}</div>}
         </form>
         <button onClick={toggleMenu} className="absolute top-5 right-5">

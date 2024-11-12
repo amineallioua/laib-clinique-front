@@ -35,7 +35,7 @@ const Details = () => {
   }, [id]);
 
   if (loading) {
-    return <p>{t('loading')}</p>;
+    return <h3 className="flex justify-center items-center h-screen  text-lg font-bold">{t('loading')}</h3>;
   }
 
   if (!course) {
