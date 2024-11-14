@@ -3,17 +3,16 @@ import { useState, useEffect } from 'react';
 import { useCart } from '../components/cartcontext';
 import { PiEmptyBold } from "react-icons/pi";
 import Buy from '../components/store/form';
-import itemimg from '.././assets/pngwing2.png';
 import correct from '.././assets/correct.png';
 import wallpaper from '.././assets/pink-girly-25.jpg';
 import { IoClose } from "react-icons/io5";
-import { useTranslation } from 'react-i18next'; // Import i18n for translation
+import { useTranslation } from 'react-i18next';
 
 const Details = () => {
-  const { id } = useParams(); // Get the product ID from the URL
-  const { t, i18n } = useTranslation(); // Initialize translation
+  const { id } = useParams();
+  const { t, i18n } = useTranslation();
   const [product, setProduct] = useState(null);
-  const [loading, setLoading] = useState(true); // Add loading state
+  const [loading, setLoading] = useState(true);
   const [isOpen, setIsOpen] = useState(true);
   const [isOpen1, setIsOpen1] = useState(true);
 
@@ -22,33 +21,42 @@ const Details = () => {
   };
 
   const { addToCart } = useCart();
+  
   useEffect(() => {
     const fetchProductDetails = async () => {
       try {
-        const response = await fetch(`http://localhost:4000/api/products/${id}`); // Fetch product by ID
+        const response = await fetch(`http://localhost:4000/api/products/${id}`);
         const result = await response.json();
         setProduct(result);
       } catch (error) {
         console.error('Error fetching product details:', error);
-      }finally{
-        setLoading(false)
+      } finally {
+        setLoading(false); // Ensure loading is set to false after the request
       }
     };
 
     fetchProductDetails();
   }, [id]);
 
+  // Display loading indicator while data is being fetched
   if (loading) {
-    return <h2>{t('loading')}</h2>// Show loading indicator while fetching
-  }
+    return (
+      <div className="flex justify-center items-center">
+        <button className="bg-gray-300 text-gray-600 px-4 py-2 rounded-full">
+          {t('loading')}...
+        </button>
+      </div>
+    );
+  }  
 
+  // Handle case when product is null or not found
   if (!product) {
     return (
       <p className='flex items-center justify-center text-center font-extrabold text-[40px] text-black my-[200px]'>
         {t('productNotFound')} <br />
         <PiEmptyBold className='text-center font-extrabold text-[80px] text-black ml-10' />
       </p>
-    ); // Handle case when product is null or not found
+    );
   }
 
   const toggleMenu = () => {
@@ -65,7 +73,7 @@ const Details = () => {
         style={{ direction: i18n.language === 'ar' ? 'rtl' : 'ltr' }}
       >
         <div className='sm:w-[600px] overflow-hidden p-2 md:p-8 w-[300px] bg-white h-[300px] sm:h-[500px] rounded-[50px]'>
-          <img src={`http://localhost:4000/${photourl}`} alt="" className='w-full h-full  rounded-[50px] ' />
+          <img src={`http://localhost:4000/${photourl}`} alt="" className='w-full h-full  rounded-[50px]' />
         </div>
         <div className='max-w-[600px] ml-5 h-auto relative flex flex-col justify-between'>
           <div>
@@ -78,28 +86,24 @@ const Details = () => {
           </div>
 
           <div className={`flex space-x-5 mt-5 ${i18n.language === 'ar' ? 'space-x-reverse' : ''}`}>
-          <button
-  onClick={() => {
-    addToCart(product, 1);
-
-    // Emit the custom event
-    const event = new CustomEvent('itemAddedToCart');
-    window.dispatchEvent(event); // Dispatch the event globally
-  }}
-  className='w-[150px] h-[40px] sm:w-[250px] sm:h-[50px] rounded-[50px] font-bold text-black text-[16px] sm:text-[20px] hover:scale-110 hover:bg-[#ffb0b0] bg-[#f7c0c0] overflow-hidden whitespace-nowrap text-ellipsis'
->
-  {t('addToCart')}
-</button>
+            <button
+              onClick={() => {
+                addToCart(product, 1);
+                const event = new CustomEvent('itemAddedToCart');
+                window.dispatchEvent(event);
+              }}
+              className='w-[150px] h-[40px] sm:w-[250px] sm:h-[50px] rounded-[50px] font-bold text-black text-[16px] sm:text-[20px] hover:scale-110 hover:bg-[#ffb0b0] bg-[#f7c0c0] overflow-hidden whitespace-nowrap text-ellipsis'
+            >
+              {t('addToCart')}
+            </button>
 
             <button
               onClick={() => toggleMenu()}
               className='w-[150px] h-[40px] sm:w-[250px] sm:h-[50px] rounded-[50px] font-bold text-black text-[16px] sm:text-[20px] hover:bg-[#75d6ff] hover:scale-110 bg-[#9fddf8] overflow-hidden whitespace-nowrap text-ellipsis'
             >
-            {t('buyNow')}
+              {t('buyNow')}
             </button>
-            </div>
-
-
+          </div>
         </div>
       </div>
 

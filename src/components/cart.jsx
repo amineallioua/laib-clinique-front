@@ -120,15 +120,19 @@ const Cart = () => {
           />
         </div>
         <div className="text-center items-center flex justify-center" >
-          ${(item.price * item.quantity).toFixed(0)}
+          DZ {(item.price * item.quantity).toFixed(0)}
         </div>
       </div>
     ))}
   </div>
 </div>
 
-      
-      <h1 className="text-black font-bold text-[25px] mt-16">{t('cart.total')}: DZ{total.toFixed(0)}</h1>
+<h1
+  className={`text-black font-bold text-[25px] mt-16 ${i18n.language === 'ar' ? 'text-right' : ''}`}
+  dir={i18n.language === 'ar' ? 'rtl' : 'ltr'}
+>
+  {t('cart.total')} : {total.toFixed(0)} DZ
+</h1>
       {showMessage &&<p className=" text-green-500 font-bold inline " >    {t('cart.orderDone')}! <IoCheckmarkDoneCircle/> </p>}
       <button onClick={toggleMenu} className="w-[120px] p-2 rounded-[10px]  bg-black text-[20px] absolute right-10 bottom-8 text-white font-bold  " > {t('cart.checkout')} </button>
 

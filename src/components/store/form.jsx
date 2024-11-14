@@ -102,16 +102,22 @@ const Buy = ({ isOpen, toggleMenu, product, toggleMenu1 }) => {
 
   return (
     <div
-      className={`fixed top-0 left-0 w-full h-full flex items-center justify-center bg-transparent backdrop-blur-sm z-40 transition-opacity duration-300 ease-in-out ${isOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
-      onClick={toggleMenu}
+    className={`fixed top-0 left-0 w-full h-full flex items-center justify-center bg-transparent backdrop-blur-sm z-40 transition-opacity duration-300 ease-in-out ${isOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
+    onClick={toggleMenu}
+  >
+    <div
+      onClick={(e) => e.stopPropagation()}
+      className="w-[330px] h-[480px] sm:w-[430px] sm:h-[500px] bg-white rounded-[50px] shadow-3xl flex flex-col mb-10"
     >
-      <div onClick={(e) => e.stopPropagation()} className="w-[330px] h-[480px] sm:w-[430px] sm:h-[500px] bg-white rounded-[50px] shadow-3xl flex flex-col mb-10">
-        <form onSubmit={handleSubmit} className="p-8 relative">
-        <h2 className={`text-lg font-bold text-center mb-4`}>{t('storeForm.OrderForm')}</h2>
-        {error && <div className={`  text-red-500 text-sm ${textAlignClass}`}>{error}</div>}
-
+      <form onSubmit={handleSubmit} className="p-8 relative flex flex-col h-full">
+        <h2 className="text-lg font-bold text-center mb-4">{t('storeForm.OrderForm')}</h2>
+        {error && <div className={`text-red-500 text-sm ${textAlignClass}`}>{error}</div>}
+  
+        <div className="flex-grow"> {/* Container for form fields */}
           <div className="mb-2">
-            <label className={`block text-gray-700 text-sm font-bold mb-2 ${textAlignClass}`} htmlFor="fullName">{t('storeForm.ClientName')}</label>
+            <label className={`block text-gray-700 text-sm font-bold mb-2 ${textAlignClass}`} htmlFor="fullName">
+              {t('storeForm.ClientName')}
+            </label>
             <input
               type="text"
               id="fullName"
@@ -123,9 +129,11 @@ const Buy = ({ isOpen, toggleMenu, product, toggleMenu1 }) => {
               required
             />
           </div>
-
+  
           <div className="mb-2">
-            <label className={`block text-gray-700 text-sm font-bold mb-2 ${textAlignClass}`} htmlFor="phone">{t('storeForm.PhoneNumber')}</label>
+            <label className={`block text-gray-700 text-sm font-bold mb-2 ${textAlignClass}`} htmlFor="phone">
+              {t('storeForm.PhoneNumber')}
+            </label>
             <input
               type="tel"
               id="phone"
@@ -137,25 +145,11 @@ const Buy = ({ isOpen, toggleMenu, product, toggleMenu1 }) => {
               required
             />
           </div>
-
-          <div className={`my-5 text-center h-[80px] bg-slate-100 rounded-[20px] ${textAlignClass} overflow-hidden`}>
-            {Array.isArray(product) ? (
-              product.map((item) => (
-                <div key={item._id} className="flex items-center justify-between border-2 border-gray-200 rounded-xl p-2 m-2">
-                  <span className="font-semibold">{t('')}{item.name}</span>
-                
-                </div>
-              ))
-            ) : (
-              <div className="flex items-center justify-between border-2 border-gray-200 rounded-xl p-2 m-2">
-                <span className="font-semibold">{t('')}{product.name}</span>
-             
-              </div>
-            )}
-          </div>
-
+  
           <div className="mb-2">
-            <label className={`block text-gray-700 text-sm font-bold mb-2 ${textAlignClass}`} htmlFor="address">{t('storeForm.Address')}</label>
+            <label className={`block text-gray-700 text-sm font-bold mb-2 ${textAlignClass}`} htmlFor="address">
+              {t('storeForm.Address')}
+            </label>
             <input
               type="text"
               id="address"
@@ -167,36 +161,34 @@ const Buy = ({ isOpen, toggleMenu, product, toggleMenu1 }) => {
               required
             />
           </div>
-          <div className="flex justify-center w-full">
-      <button
-        type="submit"
-        className="bg-[#4BA6C3] w-[85%] min-h-[48px] flex items-center justify-center relative hover:bg-blue-700 text-white font-extrabold py-2 px-4 rounded-xl focus:outline-none focus:shadow-outline"
-        onClick={handleSubmit}
-        disabled={loading} // Disable button when loading
-      >
-        {loading ? (
-          <ClipLoader
-            color="#ffffff"
-            size={24} // You can adjust the size as needed
-            loading={loading}
-          />
-        ) : (
-          t('storeForm.Order')
-        )}
-      </button>
-    </div>
-
-
+        </div>
+  
+        <div className="flex justify-center w-full mt-auto">
           <button
-            type="button"
-            onClick={toggleMenu}
-            className="absolute top-4 right-4 text-gray-700 hover:text-gray-900"
+            type="submit"
+            className="bg-[#4BA6C3] w-[85%] min-h-[48px] flex items-center justify-center relative hover:bg-[#3A8DA4] text-white font-extrabold py-2 px-4 rounded-xl focus:outline-none focus:shadow-outline"
+            onClick={handleSubmit}
+            disabled={loading} // Disable button when loading
           >
-            <IoClose />
+            {loading ? (
+              <ClipLoader color="#ffffff" size={24} loading={loading} />
+            ) : (
+              t('storeForm.Order')
+            )}
           </button>
-        </form>
-      </div>
+        </div>
+  
+        <button
+          type="button"
+          onClick={toggleMenu}
+          className="absolute top-4 right-4 text-gray-700 hover:text-gray-900"
+        >
+          <IoClose />
+        </button>
+      </form>
     </div>
+  </div>
+  
   );
 };
 

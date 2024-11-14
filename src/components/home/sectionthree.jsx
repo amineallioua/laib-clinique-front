@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next'; // Import useTranslation
+import picture from '../../assets/png 2.png';
 
 const Hsec3 = () => {
     const { t, i18n } = useTranslation(); // Initialize translation hook
@@ -17,8 +18,12 @@ const Hsec3 = () => {
             
             {/* Image Section */}
             <div className="md:w-1/2 justify-center flex mt-6 md:mt-0">
-                <div className="w-[320px] aspect-square sm:w-[350px] sm:h-[350px] bg-white rounded-full border-[15px] border-[#4BA6C3]">
-                    {/* This div can hold an image or content */}
+                <div className="w-[320px] aspect-square sm:w-[350px] sm:h-[350px] bg-white rounded-full border-[15px] border-[#4BA6C3] overflow-hidden flex items-center justify-center">
+                    <img 
+                        src={picture} 
+                        alt="Meet LPC" 
+                        className="w-full h-full object-cover" 
+                    />
                 </div>
             </div>
         </section>

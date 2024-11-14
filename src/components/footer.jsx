@@ -17,7 +17,7 @@ const Footer = ({ color }) => {
                     <h2 className="text-xl font-bold mb-4">{t("footer.about_us")}</h2>
                     <p className="text-sm mb-4">{t("footer.about_text")}</p>
                     <div className={`flex gap-4 ${isRtl ? 'flex-row-reverse justify-end ' : ''} text-lg`}>
-                        <a href="/" target="_blank" rel="noopener noreferrer">
+                        <a href="https://www.facebook.com/share/19eqA3XU24/?mibextid=LQQJ4d" target="_blank" rel="noopener noreferrer">
                             <FaFacebook className="hover:text-[#3b5998] transition-colors duration-300" />
                         </a>
                         <a href="https://www.instagram.com/darine_lb?igsh=MWZndXc3aWFxOGZoZQ==" target="_blank" rel="noopener noreferrer">

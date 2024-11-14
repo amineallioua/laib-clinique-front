@@ -130,7 +130,7 @@
       "enroll": "S'inscrire",
       "error": {
         "phoneInvalid": "Le numéro de téléphone doit être un numéro valide.",
-        "phoneTooLong": "Le numéro de téléphone doit comporter moins de 10 chiffres.",
+        "phoneTooLong": "Le numéro de téléphone doit comporter 10 chiffres.",
         "titleTooShort": "Le titre doit comporter au moins 5 caractères.",
         "requestFailed": "Échec de la création de la formation.",
         "processingRequest": "Une erreur s'est produite lors du traitement de votre demande."

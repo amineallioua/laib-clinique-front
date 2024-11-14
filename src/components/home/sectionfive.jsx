@@ -1,7 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import shape from '../../assets/Component2.png';
-
+import logo from '../../assets/file.png'
 const Hsec5 = () => {
     const { t, i18n } = useTranslation();
     const isArabic = i18n.language === 'ar';
@@ -16,7 +15,7 @@ const Hsec5 = () => {
             <div className={`sm:flex ${isArabic ? 'flex-row-reverse' : 'flex-row'} items-center justify-between`}>
                 <div className={`sm:w-1/3 h-auto ${isArabic ? 'sm:right-18' : 'md:left-18'}`}>
                     <img 
-                        src={shape} 
+                        src={logo} 
                         alt="Sample" 
                         className="w-15 h-auto"
                     />

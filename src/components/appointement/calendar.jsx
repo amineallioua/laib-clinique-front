@@ -6,22 +6,32 @@ import dayjs from 'dayjs';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 import { useTranslation } from 'react-i18next';
+import { styled } from '@mui/material/styles';
+
+// Define the color you want for the buttons
+const calendarButtonColor = '#4BA6C3';
+
+// Custom styled wrapper to apply styles to the OK and Cancel buttons
+const StyledStaticDatePicker = styled(StaticDatePicker)({
+  '& .MuiPickersModalDialog-root .MuiButton-textPrimary': {
+    color: calendarButtonColor,
+  },
+});
 
 export default function Calendar({ selectedDate, onDateChange }) {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-  const { t } = useTranslation(); // Use the translation hook
+  const { t } = useTranslation();
 
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
-      <StaticDatePicker
+      <StyledStaticDatePicker
         displayStaticWrapperAs={isMobile ? 'mobile' : ''}
         className="rounded-[30px] shadow-3xl shadow-black md:p-10 mb-10 w-full"
         orientation={isMobile ? 'portrait' : 'landscape'}
         value={selectedDate || dayjs()}
         onChange={onDateChange}
         renderInput={(params) => <input {...params} />}
-        // Apply translations to labels and aria-labels
         sx={{
           backgroundColor: 'white',
           fontFamily: 'Montserrat, sans-serif',
@@ -49,11 +59,10 @@ export default function Calendar({ selectedDate, onDateChange }) {
             },
           },
         }}
-        // Adding translations for labels and other texts
         localeText={{
-          calendarLabel: t('calendar.label'), // Translate calendar label
-          okButtonLabel: t('calendar.ok'), // Translate OK button
-          cancelButtonLabel: t('calendar.cancel'), // Translate Cancel button
+          calendarLabel: t('calendar.label'),
+          okButtonLabel: t('calendar.ok'),
+          cancelButtonLabel: t('calendar.cancel'),
         }}
       />
     </LocalizationProvider>

@@ -1,5 +1,5 @@
 import React from 'react';
-import nurce from '../../assets/Component.png';
+import nurce from '../../assets/Component 1.png';
 import claws from '../../assets/claws.png';
 import avicii from '../../assets/avicii.png';
 import grid from '../../assets/grid.png';
