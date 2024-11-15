@@ -63,11 +63,7 @@ const Buy = ({ isOpen, toggleMenu, product, toggleMenu1 }) => {
 
     const productsArray = Array.isArray(product)
     ? product.map((item) => ({ productId: item._id, quantity: item.quantity }))
-<<<<<<< HEAD
-    : [{ productId: product._id, quantity: product.quantity }];
-=======
     : [{ productId: product._id, quantity: 1   }];
->>>>>>> origin/amar
 
     const orderData = {
       clientName,

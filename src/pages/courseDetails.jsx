@@ -56,31 +56,6 @@ const Details = () => {
   };
   const text = "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of "
 
-<<<<<<< HEAD
- 
-
-  return (
-    <div className='max-w-[96%] relative shadow-xl shadow-slate-300 py-5 mt-[100px] pb-10 px-5 mb-[70px] sm:justify-normal justify-center rounded-[50px] lg:flex flex-row items-center bg-[#d4f5ff] ml-[2%]'>
-      <div className='sm:w-[600px] w-[350px] bg-white h-[400px] sm:h-[500px] rounded-[50px] overflow-hidden '>
-      <img src={`http://localhost:4000/${photourl}`} alt="" className=' w-full h-full ' />
-      </div>
-      <div className='max-w-[600px] ml-5 h-[500px] relative'>
-        <h1 className='sm:text-[50px] text-[40px] font-bold text-black inline'>{course.title}  </h1> 
-        <span className= {`  ${course.type === "free" ? "text-green-500" : 
-                   course.type === "paid" ? "text-red-500" : 
-                   "text-blue-500"}  text-green-500 text-[30px] font-semibold`}  > {course.type} </span> 
-
-        <div className='  h-[150px] overflow-hidden mt-5  ' >   
-            <p className=' text-black mb-10 text-[20px] '>{text}</p> </div> 
-         
-
-     
-
-       
-          <button onClick={  ()=>{toggleMenu()} } className='w-[150px] absolute bottom-0  h-[40px] sm:w-[250px] sm:h-[50px] rounded-[50px] font-bold text-white text-[25px] bg-[#00B2FF]'>
-            Enroll
-          </button>
-=======
   const photoUrl = course?.photo ? course.photo.replace(/\\/g, '/') : 'default-image.jpg';
 
   const getCourseTypeClass = (type) => {
@@ -112,7 +87,6 @@ const Details = () => {
         {/* Section Image */}
         <div className={`sm:w-[600px] w-[350px] bg-white h-full  rounded-[50px] overflow-hidden ${isArabic ? 'mr-0 ml-5' : ''}`}>
           <img src={`http://localhost:4000/${photoUrl}`} alt="" className='w-full h-full object-cover' />
->>>>>>> origin/amar
         </div>
 
         {/* Section Content */}
@@ -154,17 +128,6 @@ const Details = () => {
         {/* Fenêtre modale de confirmation d'inscription */}
         <Cform Name={course.title} isOpen={isOpen} toggleMenu={toggleMenu} toggleMenu1={toggleMenu1} />
 
-<<<<<<< HEAD
-        <div className={`w-full flex transition-opacity duration-300 ease-in-out ${isOpen1 ? 'opacity-0 pointer-events-none' : 'opacity-100'} left-0 justify-center bg-transparent backdrop-blur-sm h-full p-[10%] fixed top-0 z-40`} onClick={ ()=> {toggleMenu1() ; navigate('/courses')}  } >
-        <div 
-        onClick={(e) => e.stopPropagation()}
-        className="w-[650px] h-[380px] py-10 bg-white rounded-[50px] mt-[200px] sm:mt-auto shadow-2xl flex-row relative justify-center">
-          <center>
-            <img src={correct} alt="Appointment booked" className='w-[170px] h-[170px] mb-[60px]' />
-            <h1 className='text-[22px] font-extrabold text-[#374885]'>  enrollement demande done <br /> wait the call </h1>
-          </center>
-        <button>  <IoClose onClick={()=> {toggleMenu1() ; navigate('/courses')} } className='absolute top-10 right-10 text-[40px] text-[#585858]' /></button>
-=======
         <div className={`w-full flex transition-opacity duration-300 ease-in-out ${isOpen1 ? 'opacity-0 pointer-events-none' : 'opacity-100'} left-0 justify-center bg-transparent backdrop-blur-sm h-full p-[10%] fixed top-0 z-40`} onClick={() => { toggleMenu1(); navigate('/courses'); }}>
           <div onClick={(e) => e.stopPropagation()} className="w-[650px] h-[380px] py-10 bg-white rounded-[50px] mt-[200px] sm:mt-auto shadow-2xl flex-row relative justify-center">
             <center>
@@ -177,7 +140,6 @@ const Details = () => {
               <IoClose onClick={() => { toggleMenu1(); navigate('/courses'); }} className='absolute top-10 right-10 text-[40px] text-[#585858]' />
             </button>
           </div>
->>>>>>> origin/amar
         </div>
       </div>
     </div>
