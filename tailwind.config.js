@@ -6,8 +6,9 @@ module.exports = {
   ],
   theme: {
     extend: {
-      fontFamily: {
-        montserrat: ['Montserrat', 'sans-serif'],
+      
+      colors: {
+        scrollbar: '#00B2FF',
       },
       backgroundImage: {
         'custom-gradient': 'linear-gradient(to right, #91E3FD 0%,  #DFF7FF 100%)',
@@ -19,5 +20,6 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+  ],
 }

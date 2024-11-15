@@ -14,7 +14,7 @@ const App = () => {
   const location = useLocation(); // Get the current route
 
   // Check if the current route is either "/details/:id" or "/store"
-  const showCart = location.pathname.includes("/details") || location.pathname === "/Store";
+  const showCart = location.pathname.includes("/details") || location.pathname === "/store";
 
   return (
     <>

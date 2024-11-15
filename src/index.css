@@ -1,7 +1,14 @@
-/* src/index.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Hand:wght@400..700&family=Inter:wght@100..900&family=Lalezar&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Vazirmatn:wght@100..900&display=swap');
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+/* Set default font with @apply or directly */
 body {
-    @apply font-montserrat;
-  }
+    @apply font-sans; /* Replace with your default font utility if necessary */
+    font-family: "Vazirmatn", system-ui;
+}

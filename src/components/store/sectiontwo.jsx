@@ -1,11 +1,15 @@
 
 import Itemcard from './itemcard'
 import { useState , useEffect } from 'react';
+import { useTranslation } from 'react-i18next'; // Import useTranslation
+
 
  
 const Ssec2 = () => {
     const [products , setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
+    const { t } = useTranslation(); // Initialize translation hook
+
  
     const getproducts = async () => {
         try {
@@ -26,9 +30,9 @@ const Ssec2 = () => {
 
     return ( 
         <section className=" w-screen  pt-[70px] px-12 " >
-            <h1 className="text-center mb-10 text-2xl sm:text-4xl font-extrabold  text-black" > A wide range of items </h1>
+            <h1 className="text-center mb-10 text-2xl sm:text-4xl font-extrabold  text-black" > {t('store.swipe')} </h1>
             <center>
-               <div className='grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2   gap-5 mb-10 ' >
+               <div className='grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 justify-center  gap-5 mb-10 ' >
 
 
                {loading ? (
