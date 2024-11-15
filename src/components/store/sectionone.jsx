@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-import pngwing from '../../assets/pnng.avif'
-=======
 import pngwing from '../../assets/pnng.avif';
 import { useTranslation } from 'react-i18next'; // Import useTranslation
->>>>>>> origin/amar
 
 const Ssec1 = () => {
     const { t, i18n } = useTranslation(); // Initialize translation hook
